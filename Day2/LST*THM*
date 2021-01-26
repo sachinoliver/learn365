@@ -1,0 +1,42 @@
+tryhackme:
+Linux Strength Training:
+
+
+finding files based on group name requires -group option.
+E.g.: find /home/kali -type f -group hackers
+
+
+
+
+What is format for finding a file with the user named Francis and with a size of 52 kilobytes in the directory /home/francis/
+find /home/francis -type f -user francis -size 52k
+
+grep -iRl 'keyword'
+
+
+
+Hypothetically, you find yourself in a directory with many files and want to move all these files to the directory of /home/francis/logs. What is the correct command to do this?
+mv */home/francis/logs
+
+
+Hypothetically, you want to transfer a file from your /home/james/Desktop/ with the name script.py to the remote machine (192.168.10.5) directory of /home/john/scripts using the username of john. What would be the full command to do this?
+scp /home/james/Desktop/script.py john@192.168.10.5:/home/john/scripts
+
+
+cd /home/topson/corperateFiles/xch/telephone\ numbers/
+NOTE: here you see how to navigate to directory name with space
+
+
+To copy a file with space in it use quotes (“file name”)
+cp “encryption keys” /home/john/logs
+
+
+
+Move the MoveMe.txt file to the march folder directory and then execute the SH program to reveal the second flag.
+mv -- -MoveMe.txt -march\ folder/
+cd -- -march\ folder/
+ls
+./-runME.sh
+
+
+
