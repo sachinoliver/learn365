@@ -1,0 +1,10 @@
+It is a set of rules for running scripts & programs on a web server.
+It specifies what information is communicated between web server & clients web browser & how information is transmitted
+Most web server include a CGI-BIN directory in the root folder of each website on the server.
+Any scripts placed in this directory must follow the rules of common gateway interface 
+Since cgi is a standard interface it can be used on multiple types of hardware platforms  and is support by several types webserver software such as apache and windows server
+CGI  scripts & proograms can also be written in different languages such as c++ , java & perl
+CGI program is executed in real time so that it can output dynamic information
+CGI program can be used to access other resourses such as databases, graphical packages  & so on.
+
+
