@@ -19,6 +19,12 @@ if (isset($_POST['pass'])) {
 } 
 ```
 
+### vsprintf
+ ##format
+
+    The format string is composed of zero or more directives: ordinary characters (excluding %) that are copied directly to the result and conversion specifications, each of which results in fetching its own parameter.
+
+    A conversion specification follows this prototype: %[argnum$][flags][width][.precision]specifier. 
 
 ```
 php -a            
