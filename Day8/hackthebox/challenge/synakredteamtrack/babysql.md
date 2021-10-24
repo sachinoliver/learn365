@@ -128,3 +128,5 @@ XPATH syntax error: '
 HTB{h0w_d1d_y0u_f1nd_m3?}'                       
 
 ```
+### reference
+http://www.securityidiots.com/Web-Pentest/SQL-Injection/XPATH-Error-Based-Injection-Extractvalue.html
