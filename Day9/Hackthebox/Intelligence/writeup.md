@@ -116,6 +116,20 @@ Creator : Jose.Williams
 2 image files read
 ```
 
+```bash
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# cat gen_date.sh        
+#!/bin/bash
+start=2020-1-2
+end=2022-01-01
+while ! [[ $start > $end ]]; do
+echo $start
+start=$(date -d "$start + 1 day" +%F)
+done
+
+
+```
+
 
 ```bash
 ┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
