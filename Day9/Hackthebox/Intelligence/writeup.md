@@ -66,6 +66,11 @@ HOP RTT       ADDRESS
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 106.84 seconds
 ```
+port 80
+![image](https://user-images.githubusercontent.com/63084488/139021610-94e73896-8e9d-4132-a835-a6e7a84c6dfe.png)
+
+Downloaad the documents
+![image](https://user-images.githubusercontent.com/63084488/139021761-fcb40638-e094-4140-858b-5f454ceed8c2.png)
 
 
 ```bash
