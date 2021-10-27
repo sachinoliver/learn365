@@ -115,3 +115,9 @@ Page Count : 1
 Creator : Jose.Williams
 2 image files read
 ```
+
+
+```bash
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# bash gen_date.sh > dates.txt && cat dates.txt | while read line; do echo ${line}$string-upload.pdf; done > file_name.txt 
+```
