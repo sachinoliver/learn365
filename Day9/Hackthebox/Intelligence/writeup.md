@@ -665,6 +665,7 @@ Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
 [*] Getting TGT for user
 Kerberos SessionError: KRB_AP_ERR_SKEW(Clock skew too great)
 ```
+![image](https://user-images.githubusercontent.com/63084488/139022481-3130fc1c-8922-476a-8465-1b26be3f308b.png)
 
 ```
 ──(root💀kali)-[~/Downloads/hackthebox/inteligence/BloodHound.py]
