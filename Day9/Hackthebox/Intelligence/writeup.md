@@ -66,3 +66,16 @@ HOP RTT       ADDRESS
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 106.84 seconds
 ```
+
+
+```bash
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# ls -la
+total 68
+drwxr-xr-x  2 root root  4096 Oct 26 23:07 .
+drwxr-xr-x 11 root root  4096 Oct 26 23:07 ..
+-rw-r--r--  1 root root 26835 Oct 26 23:06 2020-01-01-upload.pdf
+-rw-r--r--  1 root root 27242 Oct 26 23:05 2020-12-15-upload.pdf
+-rw-r--r--  1 root root  3221 Oct 26 23:04 nmap.txt
+```
+
