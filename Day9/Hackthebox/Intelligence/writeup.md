@@ -185,3 +185,41 @@ Version: v1.0.3 (9dad6e1) - 10/27/21 - Ronnie Flathers @ropnop
 2021/10/27 00:07:33 >  Done! Tested 30 usernames (30 valid) in 0.588 seconds
 ```
 
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence]
+└─# python3 GetNPUsers.py intelligence.htb/ -usersfile users.txt                                                127 ⨯
+Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
+
+[-] User Anita.Roberts doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Brian.Baker doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Brian.Morris doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Daniel.Shelton doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Danny.Matthews doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Darryl.Harris doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User David.Mcbride doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User David.Reed doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User David.Wilson doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Ian.Duncan doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jason.Patterson doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jason.Wright doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jennifer.Thomas doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jessica.Moody doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User John.Coleman doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Jose.Williams doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Kaitlyn.Zimmerman doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Kelly.Long doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Nicole.Brock doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Richard.Williams doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Samuel.Richardson doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Scott.Scott doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Stephanie.Young doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Teresa.Williamson doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Thomas.Hall doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Thomas.Valenzuela doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Tiffany.Molina doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Travis.Evans doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Veronica.Patel doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User William.Lee doesn't have UF_DONT_REQUIRE_PREAUTH set
+
+```
+
