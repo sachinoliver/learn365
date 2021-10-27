@@ -79,3 +79,39 @@ drwxr-xr-x 11 root root  4096 Oct 26 23:07 ..
 -rw-r--r--  1 root root  3221 Oct 26 23:04 nmap.txt
 ```
 
+```bash
+exiftool *.pdf
+======== 2020-01-01-upload.pdf
+ExifTool Version Number : 12.16
+File Name : 2020-01-01-upload.pdf
+Directory : .
+File Size : 26 KiB
+File Modification Date/Time : 2021:07:07 05:38:11+00:00
+File Access Date/Time : 2021:07:07 05:38:11+00:00
+File Inode Change Date/Time : 2021:07:07 05:38:17+00:00
+File Permissions : rw-r--r--
+File Type : PDF
+File Type Extension : pdf
+MIME Type : application/pdf
+PDF Version : 1.5
+Linearized : No
+Page Count : 1
+Creator : William.Lee
+======== 2020-12-15-upload.pdf
+ExifTool Version Number : 12.16
+File Name : 2020-12-15-upload.pdf
+Directory : .
+File Size : 27 KiB
+File Modification Date/Time : 2021:07:07 05:38:21+00:00
+File Access Date/Time : 2021:07:07 05:38:21+00:00
+File Inode Change Date/Time : 2021:07:07 05:38:26+00:00
+File Permissions : rw-r--r--
+File Type : PDF
+File Type Extension : pdf
+MIME Type : application/pdf
+PDF Version : 1.5
+Linearized : No
+Page Count : 1
+Creator : Jose.Williams
+2 image files read
+```
