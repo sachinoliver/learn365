@@ -398,3 +398,32 @@ Enter WORKGROUP\Tiffany.Molina's password:
 	Users           Disk      
 SMB1 disabled -- no workgroup available
 ```
+
+```
+┌──(root💀kali)-[~/…/hackthebox/inteligence/ldapdomaindump/ldap_dump]
+└─# smbclient \\\\intelligence.htb\\IT -U Tiffany.Molina                                                                                                                                                                                  1 ⨯
+Enter WORKGROUP\Tiffany.Molina's password: 
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                   D        0  Sun Apr 18 20:50:55 2021
+  ..                                  D        0  Sun Apr 18 20:50:55 2021
+  downdetector.ps1                    A     1046  Sun Apr 18 20:50:55 2021
+
+		3770367 blocks of size 4096. 1462538 blocks available
+smb: \> get downdetector.ps1 
+getting file \downdetector.ps1 of size 1046 as downdetector.ps1 (1.4 KiloBytes/sec) (average 1.4 KiloBytes/sec)
+smb: \> exit
+                                                                                                                                                                                                                                              
+┌──(root💀kali)-[~/…/hackthebox/inteligence/ldapdomaindump/ldap_dump]
+└─# cat downdetector.ps1   
+��# Check web server status. Scheduled to run every 5min
+Import-Module ActiveDirectory 
+foreach($record in Get-ChildItem "AD:DC=intelligence.htb,CN=MicrosoftDNS,DC=DomainDnsZones,DC=intelligence,DC=htb" | Where-Object Name -like "web*")  {
+try {
+$request = Invoke-WebRequest -Uri "http://$($record.Name)" -UseDefaultCredentials
+if(.StatusCode -ne 200) {
+Send-MailMessage -From 'Ted Graves <Ted.Graves@intelligence.htb>' -To 'Ted Graves <Ted.Graves@intelligence.htb>' -Subject "Host: $($record.Name) is down"
+}
+} catch {}
+}
+```
