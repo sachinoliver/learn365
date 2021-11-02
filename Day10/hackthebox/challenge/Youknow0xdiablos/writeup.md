@@ -1,4 +1,44 @@
-
+```assembly
+~/Downloads/htb/challenges/Youknow0xDiablos/You know 0xDiablos ❯ r2 vuln
+[0x080490d0]> aaaa
+[x] Analyze all flags starting with sym. and entry0 (aa)
+[x] Analyze function calls (aac)
+[x] Analyze len bytes of instructions for references (aar)
+[x] Check for vtables
+[x] Type matching analysis for all functions (aaft)
+[x] Propagate noreturn information
+[x] Use -AA or aaaa to perform additional experimental analysis.
+[x] Finding function preludes
+[x] Enable constraint types analysis for variables
+[0x080490d0]> afl
+0x080490d0    1 50           entry0
+0x08049103    1 4            fcn.08049103
+0x08049090    1 6            sym.imp.__libc_start_main
+0x08049130    4 49   -> 40   sym.deregister_tm_clones
+0x08049170    4 57   -> 53   sym.register_tm_clones
+0x080491b0    3 33   -> 30   sym.__do_global_dtors_aux
+0x080491e0    1 2            entry.init0
+0x08049390    1 1            sym.__libc_csu_fini
+0x08049120    1 4            sym.__x86.get_pc_thunk.bx
+0x08049391    1 4            sym.__x86.get_pc_thunk.bp
+0x08049272    1 63           sym.vuln
+0x08049040    1 6            sym.imp.gets
+0x08049070    1 6            sym.imp.puts
+0x08049398    1 20           sym._fini
+0x08049330    4 93           sym.__libc_csu_init
+0x08049110    1 1            sym._dl_relocate_static_pie
+0x080492b1    1 118          main
+0x080490a0    1 6            sym.imp.setvbuf
+0x08049060    1 6            sym.imp.getegid
+0x080490c0    1 6            sym.imp.setresgid
+0x080491e2    8 144          sym.flag
+0x080490b0    1 6            sym.imp.fopen
+0x08049080    1 6            sym.imp.exit
+0x08049050    1 6            sym.imp.fgets
+0x08049030    1 6            sym.imp.printf
+0x08049000    3 32           sym._init
+[0x080490d0]> s main
+```
 
 
 
