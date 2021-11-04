@@ -20,3 +20,14 @@ ropme: ELF 64-bit LSB executable
     NX:       NX enabled
     PIE:      No PIE (0x400000)
 ```
+
+```assembly
+└─# ltrace ./ropme
+__libc_start_main(0x400626, 1, 0x7ffce8bd0308, 0x400670 <unfinished ...>
+puts("ROP me outside, how 'about dah?"ROP me outside, how 'about dah?
+)                                 = 32
+fflush(0x7f20042246c0)                                                  = 0
+fgets(test
+"test\n", 500, 0x7f20042239a0)                                    = 0x7ffce8bd01d0
++++ exited (status 0) +++
+```
