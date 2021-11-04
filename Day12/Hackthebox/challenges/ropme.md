@@ -31,3 +31,4 @@ fgets(test
 "test\n", 500, 0x7f20042239a0)                                    = 0x7ffce8bd01d0
 +++ exited (status 0) +++
 ```
+![image](https://user-images.githubusercontent.com/63084488/140326994-0e7e776f-f1d0-4259-a40f-024bbe7580d4.png)
