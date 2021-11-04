@@ -1,6 +1,6 @@
 
-
-
+If you first create an account the pointer used for dynamic memory allocation will point at the end of the chunk.
+If you delete it, then the pointer, instead of being set to null continues to refer to the now-freed memory, the result is a dangling pointer.
 
 
 How UAF occurs
