@@ -9,3 +9,14 @@ ropme: ELF 64-bit LSB executable
  BuildID[sha1]=e30ea7fd405c5104fd0d97dc464c513b05005fdb
  not stripped
 ```
+
+
+```assembly
+└─# checksec ropme  
+[*] '/root/Downloads/hackthebox/challenge/ropme/ropme'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+```
