@@ -36,7 +36,6 @@ def main():
     context.update(arch='amd64', os='linux')
     p = remote('docker.hackthebox.eu',31132)
     log.info("lets solve")
-    #p=process('./batcomputer')
 
     # leak address of my buffer
     p.recvuntil('>')
