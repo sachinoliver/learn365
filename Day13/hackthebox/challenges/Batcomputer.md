@@ -22,7 +22,7 @@ batcomputer: ELF 64-bit LSB pie executable
     PIE:      PIE enabled
     RWX:      Has RWX segments
 ```
-
+Because the binary is stripped we cant simply go to the main function. A simple work around is to look at the strings to see if we have encountered them before. In Ghidra, the strings window can be displayed by going to Window > Defined Strings. The screenshot above shows the string “Welcome to your Bat Computer.” selected. Following this string we land on what looks like our main function, FUN_001011ec (this may be different on your computer)
 ![image](https://user-images.githubusercontent.com/63084488/140466459-32617dda-1208-423c-aa91-4c77843b1d31.png)
 
 exploit
