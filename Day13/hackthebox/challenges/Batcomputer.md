@@ -29,6 +29,13 @@ Because the binary is stripped we cant simply go to the main function. A simple 
 
 ![image](https://user-images.githubusercontent.com/63084488/140466459-32617dda-1208-423c-aa91-4c77843b1d31.png)
 
+
+In order to make analysis easier, the variables have been renamed to better reflect their purpose. One of these variables is user_choice whose value determines which message/prompt to show the user. On line 18 user_choice is compared with integer 1, if equal, the memory address of the nav_command buffer is printed using printf. If instead user_choice is 2, a password is requested and stored into user_pass using scanf. Line 24 clearly shows the password being compared to the string b4tp@$$w0rd!. If the passwords do not match the program terminates with exit(). If the passwords do match, however, the user is asked to provide their commands which are then stored within the nav_commands buffer, the same buffer whose address was printed in option 1. The string “Roger that!” is printed and the function loops back to the beginning. If user_choice are neither 1 nor 2, the binary prints a “Too bad” message and returns 0, finishing execution.
+
+There is buffer overflow vulnerability within the read call on line 32. 0x89 (137) bytes are read from standard input into a buffer that is only allocated 76 bytes. This gives us enough space to overwrite the return address. We have to figure out the number of bytes between the start of our navigation commands input and the return address. We can do this using GDB.
+
+
+
 exploit
 ```python
 #!/usr/bin/python3
