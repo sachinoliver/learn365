@@ -1,4 +1,4 @@
-
+`File` command on the binary shows that it is stripped, meaning there are no debug symbols present. A stripped binary makes it more difficult to reverse engineer and the main function will be harder to find.
 
 ```assembly
 # file batcomputer | tr "," "\n" 
