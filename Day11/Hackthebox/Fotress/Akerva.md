@@ -160,6 +160,9 @@ Nmap done: 1 IP address (1 host up) scanned in 116.60 seconds
            Raw packets sent: 217 (7.716KB) | Rcvd: 104 (6.641KB)
 ```
 
+First flag
+![image](https://user-images.githubusercontent.com/63084488/141961921-3fe9351d-3252-4391-98f0-36f8f210d77d.png)
+
 wordpress
 wpscan
 ```bash
