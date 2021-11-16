@@ -117,3 +117,45 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 52.32 seconds
            Raw packets sent: 1124 (53.482KB) | Rcvd: 1082 (46.774KB)
 ```
+nmap udp scan
+```bash
+nmap -sU -sV -F --open -v -oA enum_udp 10.13.37.11
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-11-16 03:37 EST
+NSE: Loaded 45 scripts for scanning.
+Initiating Ping Scan at 03:37
+Scanning 10.13.37.11 [4 ports]
+Completed Ping Scan at 03:37, 0.24s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 03:37
+Completed Parallel DNS resolution of 1 host. at 03:37, 0.02s elapsed
+Initiating UDP Scan at 03:37
+Scanning 10.13.37.11 [100 ports]
+Increasing send delay for 10.13.37.11 from 0 to 50 due to max_successful_tryno increase to 4
+Increasing send delay for 10.13.37.11 from 50 to 100 due to max_successful_tryno increase to 5
+Increasing send delay for 10.13.37.11 from 100 to 200 due to max_successful_tryno increase to 6
+Increasing send delay for 10.13.37.11 from 200 to 400 due to 11 out of 13 dropped probes since last increase.
+Increasing send delay for 10.13.37.11 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 52.00% done; ETC: 03:38 (0:00:30 remaining)
+Discovered open port 161/udp on 10.13.37.11
+Completed UDP Scan at 03:38, 86.95s elapsed (100 total ports)
+Initiating Service scan at 03:38
+Scanning 3 services on 10.13.37.11
+Completed Service scan at 03:38, 28.22s elapsed (3 services on 1 host)
+NSE: Script scanning 10.13.37.11.
+Initiating NSE at 03:38
+Completed NSE at 03:38, 0.35s elapsed
+Initiating NSE at 03:38
+Completed NSE at 03:38, 0.25s elapsed
+Nmap scan report for 10.13.37.11
+Host is up (0.23s latency).
+Not shown: 97 closed ports
+PORT      STATE         SERVICE VERSION
+161/udp   open          snmp    SNMPv1 server; net-snmp SNMPv3 server (public)
+49192/udp open|filtered unknown
+49201/udp open|filtered unknown
+Service Info: Host: Leakage
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 116.60 seconds
+           Raw packets sent: 217 (7.716KB) | Rcvd: 104 (6.641KB)
+```
