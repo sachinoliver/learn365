@@ -290,3 +290,265 @@ Interesting Finding(s):
 [+] Memory used: 291.98 MB
 [+] Elapsed time: 00:02:52
 ```
+
+
+snmp check
+```bash
+snmp-check v1.9 - SNMP enumerator
+Copyright (c) 2005-2015 by Matteo Cantoni (www.nothink.org)
+
+[+] Try to connect to 10.13.37.11:161 using SNMPv1 and community 'public'
+
+[*] System information:
+
+  Host IP address               : 10.13.37.11
+  Hostname                      : Leakage
+  Description                   : Linux Leakage 4.15.0-72-generic #81-Ubuntu SMP Tue Nov 26 12:20:02 UTC 2019 x86_64
+  Contact                       : Me <me@example.org>
+  Location                      : Sitting on the Dock of the Bay
+  Uptime snmp                   : 1 day, 11:57:53.99
+  Uptime system                 : 1 day, 11:57:46.65
+  System date                   : 2021-11-16 07:16:27.0
+
+[*] Network information:
+
+  IP forwarding enabled         : no
+  Default TTL                   : 64
+  TCP segments received         : 1741241
+  TCP segments sent             : 1755983
+  TCP segments retrans          : 1291
+  Input datagrams               : 2109410
+  Delivered datagrams           : 2109410
+  Output datagrams              : 2068594
+
+[*] Network interfaces:
+
+  Interface                     : [ up ] lo
+  Id                            : 1
+  Mac Address                   : :::::
+  Type                          : softwareLoopback
+  Speed                         : 10 Mbps
+  MTU                           : 65536
+  In octets                     : 25863187
+  Out octets                    : 25863187
+
+  Interface                     : [ up ] Intel Corporation 82545EM Gigabit Ethernet Controller (Copper)
+  Id                            : 2
+  Mac Address                   : 00:50:56:b9:0f:be
+  Type                          : ethernet-csmacd
+  Speed                         : 1000 Mbps
+  MTU                           : 1500
+  In octets                     : 247121384
+  Out octets                    : 552428761
+
+
+[*] Network IP:
+
+  Id                    IP Address            Netmask               Broadcast           
+  2                     10.13.37.11           255.255.255.0         1                   
+  1                     127.0.0.1             255.0.0.0             0                   
+
+[*] Routing information:
+
+  Destination           Next hop              Mask                  Metric              
+  0.0.0.0               10.13.37.2            0.0.0.0               1                   
+  10.13.37.0            0.0.0.0               255.255.255.0         0                   
+
+[*] TCP connections and listening ports:
+
+  Local address         Local port            Remote address        Remote port           State               
+  0.0.0.0               22                    0.0.0.0               0                     listen              
+  0.0.0.0               80                    0.0.0.0               0                     listen              
+  0.0.0.0               5000                  0.0.0.0               0                     listen              
+  10.13.37.11           80                    10.13.14.2            36856                 timeWait            
+  10.13.37.11           5000                  10.13.14.7            35496                 closeWait           
+  10.13.37.11           5000                  10.13.14.7            35500                 closeWait           
+  10.13.37.11           5000                  10.13.14.7            35504                 closeWait           
+  10.13.37.11           5000                  10.13.14.7            35506                 closeWait           
+  10.13.37.11           5000                  10.13.14.11           38904                 established         
+  10.13.37.11           5000                  10.13.14.11           38906                 established         
+  10.13.37.11           5000                  10.13.14.11           42026                 established         
+  10.13.37.11           36046                 10.13.14.7            4434                  closeWait           
+  10.13.37.11           50248                 10.13.14.11           4466                  closeWait           
+  10.13.37.11           60390                 10.13.14.7            4242                  closeWait           
+  10.13.37.11           60406                 10.13.14.7            4242                  closeWait           
+  10.13.37.11           60412                 10.13.14.7            4242                  closeWait           
+  127.0.0.1             3306                  0.0.0.0               0                     listen              
+  127.0.0.53            53                    0.0.0.0               0                     listen              
+
+[*] Listening UDP ports:
+
+  Local address         Local port          
+  0.0.0.0               161                 
+  0.0.0.0               54334               
+  127.0.0.53            53                  
+
+[*] Processes:
+
+  Id                    Status                Name                  Path                  Parameters          
+  1                     runnable              systemd               /sbin/init            maybe-ubiquity      
+  2                     runnable              kthreadd                                                        
+  4                     unknown               kworker/0:0H                                                    
+  6                     unknown               mm_percpu_wq                                                    
+  7                     runnable              ksoftirqd/0                                                     
+  8                     unknown               rcu_sched                                                       
+  9                     unknown               rcu_bh                                                          
+  10                    runnable              migration/0                                                     
+  11                    runnable              watchdog/0                                                      
+  12                    runnable              cpuhp/0                                                         
+  13                    runnable              cpuhp/1                                                         
+  14                    runnable              watchdog/1                                                      
+  15                    runnable              migration/1                                                     
+  16                    runnable              ksoftirqd/1                                                     
+  18                    unknown               kworker/1:0H                                                    
+  19                    runnable              kdevtmpfs                                                       
+  20                    unknown               netns                                                           
+  21                    runnable              rcu_tasks_kthre                                                 
+  22                    runnable              kauditd                                                         
+  23                    unknown               kworker/0:1                                                     
+  24                    runnable              khungtaskd                                                      
+  25                    runnable              oom_reaper                                                      
+  26                    unknown               writeback                                                       
+  27                    runnable              kcompactd0                                                      
+  28                    runnable              ksmd                                                            
+  29                    runnable              khugepaged                                                      
+  30                    unknown               crypto                                                          
+  31                    unknown               kintegrityd                                                     
+  32                    unknown               kblockd                                                         
+  33                    unknown               ata_sff                                                         
+  34                    unknown               md                                                              
+  35                    unknown               edac-poller                                                     
+  36                    unknown               devfreq_wq                                                      
+  37                    unknown               watchdogd                                                       
+  41                    runnable              kswapd0                                                         
+  42                    unknown               kworker/u5:0                                                    
+  43                    runnable              ecryptfs-kthrea                                                 
+  85                    unknown               kthrotld                                                        
+  86                    unknown               acpi_thermal_pm                                                 
+  87                    runnable              scsi_eh_0                                                       
+  88                    unknown               scsi_tmf_0                                                      
+  89                    runnable              scsi_eh_1                                                       
+  90                    unknown               scsi_tmf_1                                                      
+  96                    unknown               ipv6_addrconf                                                   
+  105                   unknown               kstrp                                                           
+  122                   unknown               charger_manager                                                 
+  173                   unknown               ttm_swap                                                        
+  174                   runnable              irq/16-vmwgfx                                                   
+  213                   runnable              scsi_eh_2                                                       
+  214                   unknown               scsi_tmf_2                                                      
+  215                   runnable              scsi_eh_3                                                       
+  216                   unknown               scsi_tmf_3                                                      
+  217                   runnable              scsi_eh_4                                                       
+  218                   unknown               scsi_tmf_4                                                      
+  219                   runnable              scsi_eh_5                                                       
+  220                   unknown               scsi_tmf_5                                                      
+  221                   runnable              scsi_eh_6                                                       
+  222                   unknown               scsi_tmf_6                                                      
+  223                   runnable              scsi_eh_7                                                       
+  224                   unknown               scsi_tmf_7                                                      
+  225                   runnable              scsi_eh_8                                                       
+  226                   unknown               scsi_tmf_8                                                      
+  227                   runnable              scsi_eh_9                                                       
+  228                   unknown               scsi_tmf_9                                                      
+  229                   runnable              scsi_eh_10                                                      
+  230                   unknown               scsi_tmf_10                                                     
+  231                   runnable              scsi_eh_11                                                      
+  232                   unknown               scsi_tmf_11                                                     
+  233                   runnable              scsi_eh_12                                                      
+  234                   unknown               scsi_tmf_12                                                     
+  235                   runnable              scsi_eh_13                                                      
+  236                   unknown               scsi_tmf_13                                                     
+  237                   runnable              scsi_eh_14                                                      
+  238                   unknown               scsi_tmf_14                                                     
+  239                   runnable              scsi_eh_15                                                      
+  240                   unknown               scsi_tmf_15                                                     
+  241                   runnable              scsi_eh_16                                                      
+  242                   unknown               scsi_tmf_16                                                     
+  243                   runnable              scsi_eh_17                                                      
+  244                   unknown               scsi_tmf_17                                                     
+  245                   runnable              scsi_eh_18                                                      
+  246                   unknown               scsi_tmf_18                                                     
+  247                   runnable              scsi_eh_19                                                      
+  248                   unknown               scsi_tmf_19                                                     
+  249                   runnable              scsi_eh_20                                                      
+  250                   unknown               scsi_tmf_20                                                     
+  251                   runnable              scsi_eh_21                                                      
+  252                   unknown               scsi_tmf_21                                                     
+  253                   runnable              scsi_eh_22                                                      
+  254                   unknown               scsi_tmf_22                                                     
+  255                   runnable              scsi_eh_23                                                      
+  256                   unknown               scsi_tmf_23                                                     
+  257                   runnable              scsi_eh_24                                                      
+  258                   unknown               scsi_tmf_24                                                     
+  259                   runnable              scsi_eh_25                                                      
+  260                   unknown               scsi_tmf_25                                                     
+  261                   runnable              scsi_eh_26                                                      
+  262                   unknown               scsi_tmf_26                                                     
+  263                   runnable              scsi_eh_27                                                      
+  264                   unknown               scsi_tmf_27                                                     
+  265                   runnable              scsi_eh_28                                                      
+  266                   unknown               scsi_tmf_28                                                     
+  267                   runnable              scsi_eh_29                                                      
+  268                   unknown               scsi_tmf_29                                                     
+  269                   runnable              scsi_eh_30                                                      
+  270                   unknown               scsi_tmf_30                                                     
+  271                   runnable              scsi_eh_31                                                      
+  272                   unknown               scsi_tmf_31                                                     
+  302                   unknown               kworker/0:1H                                                    
+  305                   unknown               kworker/1:1H                                                    
+  374                   unknown               raid5wq                                                         
+  425                   runnable              jbd2/sda2-8                                                     
+  426                   unknown               ext4-rsv-conver                                                 
+  493                   runnable              systemd-journal       /lib/systemd/systemd-journald                      
+  506                   unknown               iscsi_eh                                                        
+  510                   unknown               ib-comp-wq                                                      
+  511                   unknown               ib-comp-unb-wq                                                  
+  512                   unknown               ib_mcast                                                        
+  513                   unknown               ib_nl_sa_wq                                                     
+  514                   runnable              lvmetad               /sbin/lvmetad         -f                  
+  516                   unknown               rdma_cm                                                         
+  524                   runnable              systemd-udevd         /lib/systemd/systemd-udevd                      
+  541                   runnable              loop0                                                           
+  547                   runnable              loop1                                                           
+  585                   runnable              systemd-timesyn       /lib/systemd/systemd-timesyncd                      
+  626                   runnable              VGAuthService         /usr/bin/VGAuthService                      
+  627                   runnable              vmtoolsd              /usr/bin/vmtoolsd                         
+  775                   runnable              systemd-network       /lib/systemd/systemd-networkd                      
+  790                   runnable              systemd-resolve       /lib/systemd/systemd-resolved                      
+  922                   runnable              dbus-daemon           /usr/bin/dbus-daemon  --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+  928                   runnable              rsyslogd              /usr/sbin/rsyslogd    -n                  
+  929                   runnable              systemd-logind        /lib/systemd/systemd-logind                      
+  932                   runnable              networkd-dispat       /usr/bin/python3      /usr/bin/networkd-dispatcher --run-startup-triggers
+  938                   runnable              cron                  /usr/sbin/cron        -f                  
+  939                   runnable              atd                   /usr/sbin/atd         -f                  
+  940                   runnable              accounts-daemon       /usr/lib/accountsservice/accounts-daemon                      
+  941                   runnable              snapd                 /usr/lib/snapd/snapd                      
+  943                   runnable              irqbalance            /usr/sbin/irqbalance  --foreground        
+  972                   runnable              sshd                  /usr/sbin/sshd        -D                  
+  973                   running               snmpd                 /usr/sbin/snmpd       -Lsd -Lf /dev/null -u Debian-snmp -g Debian-snmp -I -smux mteTrigger mteTriggerConf -f
+  984                   runnable              unattended-upgr       /usr/bin/python3      /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+  1002                  runnable              agetty                /sbin/agetty          -o -p -- \u --noclear tty1 linux
+  1014                  runnable              polkitd               /usr/lib/policykit-1/polkitd  --no-debug          
+  1024                  runnable              mysqld                /usr/sbin/mysqld      --daemonize --pid-file=/run/mysqld/mysqld.pid
+  1031                  runnable              apache2               /usr/sbin/apache2     -k start            
+  1235                  runnable              cron                  /usr/sbin/CRON        -f                  
+  1236                  runnable              cron                  /usr/sbin/CRON        -f                  
+  1237                  runnable              sh                    /bin/sh               -c /opt/check_backup.sh
+  1238                  runnable              sh                    /bin/sh               -c /opt/check_devSite.sh
+  1239                  runnable              check_backup.sh       /bin/bash             /opt/check_backup.sh
+  1240                  runnable              check_devSite.s       /bin/bash             /opt/check_devSite.sh
+  1243                  runnable              space_dev.py          /usr/bin/python       /var/www/html/dev/space_dev.py
+  1244                  runnable              backup_every_17       /bin/bash             /var/www/html/scripts/backup_every_17minutes.sh AKERVA{IkN0w_SnMP@@@MIsconfigur@T!onS}
+  1249                  runnable              python                /usr/bin/python       /var/www/html/dev/space_dev.py
+  1251                  runnable              uuidd                 /usr/sbin/uuidd       --socket-activation 
+  2017                  runnable              bash                  /bin/bash                                 
+  2090                  runnable              bash                  /bin/bash                                 
+  2163                  runnable              sudo                  sudo                  -S                  
+  2164                  runnable              sh                    sh                                        
+  3584                  runnable              sh                    /bin/sh                                   
+  3626                  runnable              python                python                -c import pty;pty.spawn('/bin/bash')
+  3633                  runnable              bash                  /bin/bash                                 
+  3749                  runnable              vim                   vim                   Makefile           
+  ------------------------------------------snip-------------------------------------------------------------
+  ```
+  
