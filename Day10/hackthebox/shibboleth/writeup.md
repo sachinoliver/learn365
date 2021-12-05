@@ -1,4 +1,6 @@
-# Nmap 7.92 scan initiated Sun Dec  5 09:50:46 2021 as: nmap -sC -sV -A -T4 -oN nmap.txt 10.129.228.134
+## Nmap Scan
+
+### Nmap 7.92 scan initiated Sun Dec  5 09:50:46 2021 as: nmap -sC -sV -A -T4 -oN nmap.txt 10.129.228.134
 Nmap scan report for 10.129.228.134
 Host is up (0.16s latency).
 Not shown: 999 closed tcp ports (reset)
@@ -31,7 +33,7 @@ HOP RTT       ADDRESS
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sun Dec  5 09:51:12 2021 -- 1 IP address (1 host up) scanned in 26.09 seconds
 
-
+## UDP Scan
 nmap -sC -sV -A -sU -T4 10.129.228.134 -oN nmap.txt                                                                                               
 Starting Nmap 7.92 ( https://nmap.org ) at 2021-12-05 10:21 IST
 Warning: 10.129.228.134 giving up on port because retransmission cap hit (6).
