@@ -1,5 +1,5 @@
 ## Nmap Scan
-
+```bash
 ### Nmap 7.92 scan initiated Sun Dec  5 09:50:46 2021 as: nmap -sC -sV -A -T4 -oN nmap.txt 10.129.228.134
 Nmap scan report for 10.129.228.134
 Host is up (0.16s latency).
@@ -32,8 +32,10 @@ HOP RTT       ADDRESS
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 ### Nmap done at Sun Dec  5 09:51:12 2021 -- 1 IP address (1 host up) scanned in 26.09 seconds
+```
 
 ## UDP Scan
+```bash
 nmap -sC -sV -A -sU -T4 10.129.228.134 -oN nmap.txt                                                                                               
 Starting Nmap 7.92 ( https://nmap.org ) at 2021-12-05 10:21 IST
 Warning: 10.129.228.134 giving up on port because retransmission cap hit (6).
@@ -73,6 +75,7 @@ HOP RTT       ADDRESS
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 1090.04 seconds
+```
 
 ![image](https://user-images.githubusercontent.com/63084488/144736550-0fc4eec2-6925-47d9-b6b4-1416466f4823.png)
 
@@ -80,7 +83,7 @@ Nmap done: 1 IP address (1 host up) scanned in 1090.04 seconds
 
 
 ## Finding Vhosts using wfuzz
-
+```bash
 wfuzz -H "Host: FUZZ.shibboleth.htb" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt --hh 290 --hc 302 http://shibboleth.htb/
 ********************************************************
 * Wfuzz 3.1.0 - The Web Fuzzer                         *
@@ -101,7 +104,7 @@ Total time: 88.22547
 Processed Requests: 4989
 Filtered Requests: 4986
 Requests/sec.: 56.54829
-
+```
 
 msf6 > use auxiliary/scanner/ipmi/ipmi_dumphashes
 msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > show actions
