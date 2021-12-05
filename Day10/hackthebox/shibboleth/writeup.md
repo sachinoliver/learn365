@@ -31,7 +31,7 @@ HOP RTT       ADDRESS
 2   176.56 ms 10.129.228.134
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Sun Dec  5 09:51:12 2021 -- 1 IP address (1 host up) scanned in 26.09 seconds
+### Nmap done at Sun Dec  5 09:51:12 2021 -- 1 IP address (1 host up) scanned in 26.09 seconds
 
 ## UDP Scan
 nmap -sC -sV -A -sU -T4 10.129.228.134 -oN nmap.txt                                                                                               
@@ -76,7 +76,10 @@ Nmap done: 1 IP address (1 host up) scanned in 1090.04 seconds
 
 ![image](https://user-images.githubusercontent.com/63084488/144736550-0fc4eec2-6925-47d9-b6b4-1416466f4823.png)
 
+> Zabbix is an open-source monitoring software tool for diverse IT components,including networks, servers, virtual machines and cloud services. BMC (BaseBoardManagement Controller, it monitors the physical state of a computer, networkserver or other hardware device using sensors and communicating with the systemadministrator through an independent connection.
 
+
+## Finding Vhosts using wfuzz
 
 wfuzz -H "Host: FUZZ.shibboleth.htb" -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt --hh 290 --hc 302 http://shibboleth.htb/
 ********************************************************
