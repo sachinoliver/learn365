@@ -149,3 +149,30 @@ admin            (?)
 Use the "--show --format=Raw-SHA1" options to display all of the cracked passwords reliably
 Session completed.
 ```
+
+
+
+```bash
+┌──(root💀sac)-[~/Downloads/hackthebox/www/fixgz]
+└─# cd ..        
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# nvim web.ovpn 
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# nvim /etc/hosts           
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# ls -la               
+total 24
+drwxr-xr-x 3 root root 4096 Dec  6 20:45 .
+drwxr-xr-x 4 root root 4096 Dec  6 20:45 ..
+drwxr-xr-x 3 root root 4096 Dec  6 20:39 fixgz
+-rw-r--r-- 1 root root 8303 Dec  6 20:44 web.ovpn
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# openvpn web.ovpn
+2021-12-06 20:48:46 DEPRECATED OPTION: --cipher set to 'AES-256-CBC' but missing in --data-ciphers (AES-256-GCM:AES-128-GCM). Future OpenVPN version will ignore --cipher for cipher negotiations. Add 'AES-256-CBC' to --data-ciphers or change --cipher 'AES-256-CBC' to --data-ciphers-fallback 'AES-256-CBC' to silence this warning.
+2021-12-06 20:48:46 OpenVPN 2.5.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] built on May 14 2021
+-------------------------------snip-------------------------------------
+```
