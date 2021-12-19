@@ -244,3 +244,168 @@ lockoutThreshold: 0
 
 
 ```
+
+```bash
+ldapsearch -h 10.129.95.210 -x -b "DC=htb,DC=local" '(objectClass=Person)'
+# extended LDIF
+#
+# LDAPv3
+# base <DC=htb,DC=local> with scope subtree
+# filter: (objectClass=Person)
+# requesting: ALL
+#
+
+# Guest, Users, htb.local
+dn: CN=Guest,CN=Users,DC=htb,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Guest
+description: Built-in account for guest access to the computer/domain
+distinguishedName: CN=Guest,CN=Users,DC=htb,DC=local
+instanceType: 4
+whenCreated: 20190918174557.0Z
+whenChanged: 20190918174557.0Z
+uSNCreated: 8197
+memberOf: CN=Guests,CN=Builtin,DC=htb,DC=local
+uSNChanged: 8197
+name: Guest
+objectGUID:: 3cHbrmUFAEi25kbTT5W9gA==
+userAccountControl: 66082
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 0
+primaryGroupID: 514
+objectSid:: AQUAAAAAAAUVAAAALB4ltxV1shXFsPNP9QEAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: Guest
+sAMAccountType: 805306368
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=htb,DC=local
+isCriticalSystemObject: TRUE
+dSCorePropagationData: 20211219021848.0Z
+dSCorePropagationData: 20211219021848.0Z
+dSCorePropagationData: 20211219021848.0Z
+dSCorePropagationData: 20211219021848.0Z
+dSCorePropagationData: 16010101000000.0Z
+
+# DefaultAccount, Users, htb.local
+dn: CN=DefaultAccount,CN=Users,DC=htb,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: DefaultAccount
+description: A user account managed by the system.
+distinguishedName: CN=DefaultAccount,CN=Users,DC=htb,DC=local
+instanceType: 4
+whenCreated: 20190918174557.0Z
+whenChanged: 20190918174557.0Z
+uSNCreated: 8198
+memberOf: CN=System Managed Accounts Group,CN=Builtin,DC=htb,DC=local
+uSNChanged: 8198
+name: DefaultAccount
+objectGUID:: y2NvxY2HHEaASPoaHAyHpQ==
+userAccountControl: 66082
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 0
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAALB4ltxV1shXFsPNP9wEAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: DefaultAccount
+sAMAccountType: 805306368
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=htb,DC=local
+isCriticalSystemObject: TRUE
+dSCorePropagationData: 20211219021848.0Z
+dSCorePropagationData: 20211219021848.0Z
+dSCorePropagationData: 20211219021848.0Z
+dSCorePropagationData: 20211219021848.0Z
+dSCorePropagationData: 16010101000000.0Z
+
+# FOREST, Domain Controllers, htb.local
+dn: CN=FOREST,OU=Domain Controllers,DC=htb,DC=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+objectClass: computer
+cn: FOREST
+distinguishedName: CN=FOREST,OU=Domain Controllers,DC=htb,DC=local
+instanceType: 4
+whenCreated: 20190918105323.0Z
+whenChanged: 20211219015404.0Z
+uSNCreated: 12293
+uSNChanged: 929839
+name: FOREST
+objectGUID:: K0qBC+sYak+USTOHz0Cyeg==
+userAccountControl: 532480
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 132843524618290736
+localPolicyFlags: 0
+pwdLastSet: 132843524204852322
+primaryGroupID: 516
+objectSid:: AQUAAAAAAAUVAAAALB4ltxV1shXFsPNP6AMAAA==
+accountExpires: 9223372036854775807
+logonCount: 85
+sAMAccountName: FOREST$
+sAMAccountType: 805306369
+operatingSystem: Windows Server 2016 Standard
+operatingSystemVersion: 10.0 (14393)
+serverReferenceBL: CN=FOREST,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN
+ =Configuration,DC=htb,DC=local
+dNSHostName: FOREST.htb.local
+rIDSetReferences: CN=RID Set,CN=FOREST,OU=Domain Controllers,DC=htb,DC=local
+servicePrincipalName: TERMSRV/FOREST
+servicePrincipalName: TERMSRV/FOREST.htb.local
+servicePrincipalName: exchangeAB/FOREST
+servicePrincipalName: exchangeAB/FOREST.htb.local
+servicePrincipalName: Dfsr-12F9A27C-BF97-4787-9364-D31B6C55EB04/FOREST.htb.loc
+ al
+servicePrincipalName: ldap/FOREST.htb.local/ForestDnsZones.htb.local
+servicePrincipalName: ldap/FOREST.htb.local/DomainDnsZones.htb.local
+servicePrincipalName: DNS/FOREST.htb.local
+servicePrincipalName: GC/FOREST.htb.local/htb.local
+servicePrincipalName: RestrictedKrbHost/FOREST.htb.local
+servicePrincipalName: RestrictedKrbHost/FOREST
+servicePrincipalName: RPC/236ba33a-7959-4a41-b959-5f82689a0871._msdcs.htb.loca
+ l
+servicePrincipalName: HOST/FOREST/HTB
+servicePrincipalName: HOST/FOREST.htb.local/HTB
+servicePrincipalName: HOST/FOREST
+servicePrincipalName: HOST/FOREST.htb.local
+servicePrincipalName: HOST/FOREST.htb.local/htb.local
+servicePrincipalName: E3514235-4B06-11D1-AB04-00C04FC2DCD2/236ba33a-7959-4a41-
+ b959-5f82689a0871/htb.local
+servicePrincipalName: ldap/FOREST/HTB
+servicePrincipalName: ldap/236ba33a-7959-4a41-b959-5f82689a0871._msdcs.htb.loc
+ al
+servicePrincipalName: ldap/FOREST.htb.local/HTB
+servicePrincipalName: ldap/FOREST
+servicePrincipalName: ldap/FOREST.htb.local
+servicePrincipalName: ldap/FOREST.htb.local/htb.local
+objectCategory: CN=Computer,CN=Schema,CN=Configuration,DC=htb,DC=local
+isCriticalSystemObject: TRUE
+dSCorePropagationData: 20211219021849.0Z
+dSCorePropagationData: 20211219021849.0Z
+dSCorePropagationData: 20211219021849.0Z
+dSCorePropagationData: 20211219021849.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 132843524442040443
+msDS-SupportedEncryptionTypes: 28
+msDS-GenerationId:: 3de9L9zxF8g=
+```
