@@ -119,3 +119,128 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 91.64 seconds
            Raw packets sent: 67911 (2.988MB) | Rcvd: 67510 (2.700MB)
+```           
+           
+           
+           
+```
+smbclient -L 10.129.95.210 
+Enter WORKGROUP\root's password: 
+Anonymous login successful
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+Reconnecting with SMB1 for workgroup listing.
+do_connect: Connection to 10.129.95.210 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Unable to connect with SMB1 -- no workgroup available
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# nslookup                                                                                   
+> server 10.129.95.210
+Default server: 10.129.95.210
+Address: 10.129.95.210#53
+> 127.0.0.1
+1.0.0.127.in-addr.arpa  name = localhost.
+> 10.129.95.210
+;; connection timed out; no servers could be reached
+
+>                                                                                                                                                                                             
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# ldapsearch -h 10.129.95.210                                                                                                                                                         1 ⨯
+SASL/EXTERNAL authentication started
+ldap_sasl_interactive_bind_s: Unknown authentication method (-6)
+        additional info: SASL(-4): no mechanism available: 
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# ldapsearch -h 10.129.95.210 -x                                                                                                                                                    250 ⨯
+# extended LDIF
+#
+# LDAPv3
+# base <> (default) with scope subtree
+# filter: (objectclass=*)
+# requesting: ALL
+#
+
+# search result
+search: 2
+result: 32 No such object
+text: 0000208D: NameErr: DSID-0310021B, problem 2001 (NO_OBJECT), data 0, best 
+ match of:
+        ''
+
+
+# numResponses: 1
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# ldapsearch -h 10.129.95.210 -x -s base namingcontexts                                                                                                                              32 ⨯
+# extended LDIF
+#
+# LDAPv3
+# base <> (default) with scope baseObject
+# filter: (objectclass=*)
+# requesting: namingcontexts 
+#
+
+#
+dn:
+namingContexts: DC=htb,DC=local
+namingContexts: CN=Configuration,DC=htb,DC=local
+namingContexts: CN=Schema,CN=Configuration,DC=htb,DC=local
+namingContexts: DC=DomainDnsZones,DC=htb,DC=local
+namingContexts: DC=ForestDnsZones,DC=htb,DC=local
+
+# search result
+search: 2
+result: 0 Success
+
+# numResponses: 2
+# numEntries: 1
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# ldapsearch -h 10.129.95.210 -x -b "DC=htb,DC=local"  
+# extended LDIF
+#
+# LDAPv3
+# base <DC=htb,DC=local> with scope subtree
+# filter: (objectclass=*)
+# requesting: ALL
+#
+
+# htb.local
+dn: DC=htb,DC=local
+objectClass: top
+objectClass: domain
+objectClass: domainDNS
+distinguishedName: DC=htb,DC=local
+instanceType: 5
+whenCreated: 20190918174549.0Z
+whenChanged: 20211219015324.0Z
+subRefs: DC=ForestDnsZones,DC=htb,DC=local
+subRefs: DC=DomainDnsZones,DC=htb,DC=local
+subRefs: CN=Configuration,DC=htb,DC=local
+uSNCreated: 4099
+dSASignature:: AQAAACgAAAAAAAAAAAAAAAAAAAAAAAAAOqNrI1l5QUq5WV+CaJoIcQ==
+uSNChanged: 929834
+name: htb
+objectGUID:: Gsfw30mpJkuMe1Lj4stuqw==
+replUpToDateVector:: AgAAAAAAAAASAAAAAAAAAIArugegK3xCjpG3jOKvTZsK8AAAAAAAAPxOm
+ RMDAAAAEeYhGk0xaEyawzvMi5bZbx0ADQAAAAAA1L0+FwMAAABptVkf+oupR7OwUi6g1GLsFlADAA
+ AAAAAB1aoTAwAAADqjayNZeUFKuVlfgmiaCHEFoAAAAAAAAF8hmRMDAAAA550WLBTQ2UuhowLQP8A
+ 4SyAwDgAAAAAAkiHPFwMAAAD9IT857pY2TLBDvA9wjXW6GRAEAAAAAABuyT0XAwAAABA8AUG0jJ1F
+ iOJ6vAWO49cVMAMAAAAAANXXphMDAAAAtTDGYaJBsEWxNEEatU4xYwjQAAAAAAAAnz2ZEwMAAABOf
+ GN4ZhbsSauczVHuYEiBE3ACAAAAAADdbaATAwAAADH0xotFcHlDppuZ8rSNJnAMEAEAAAAAAIbFmR
+ MDAAAAtwL+jwq2+0WZliEirTGKpwawAAAAAAAA1ymZEwMAAAAaxJ+QNDLHQ55lTGqoLvfGCwABAAA
+ AAADKrZkTAwAAAFBd76JcNvNMvcbhLzeCkdkXoAMAAAAAAGmqqxMDAAAAGcL6qk8Zs0qRG/BZYykq
+ ex+QDQAAAAAADsc+FwMAAAB5TzHrWI2FTZJLavLc7Dl3CeAAAAAAAADPRZkTAwAAAMnKXu73q7hBp
+ RxZtKkWpCEecA0AAAAAAJnFPhcDAAAAEuOp8cC6t0+uaoe83jqnLQfAAAAAAAAAwzeZEwMAAACevY
+ D5RBP7RbrYAQrgjhuPHNAMAAAAAACxrz4XAwAAAA==
+creationTime: 132843524041570720
+forceLogoff: -9223372036854775808
+lockoutDuration: -18000000000
+lockOutObservationWindow: -18000000000
+lockoutThreshold: 0
+---------------------------snip----------------------------------------------------------------
+
+
+
+```
