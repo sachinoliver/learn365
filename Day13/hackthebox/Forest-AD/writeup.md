@@ -641,3 +641,31 @@ July
 
 ---------------------------------------------------------snip-------------------------------------
 ```
+
+
+```
+hashcat --force --stdout pass -r /usr/share/hashcat/rules/best6        
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# for i in $(cat pass); do echo $i; echo ${i}\!; done > t                                                                                                                           130 ⨯
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# cp t pass                                              
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# less pass
+                                                                                                                                                                                            
+┌──(root💀oliver)-[~/Downloads/hackthebox/Forest]
+└─# hashcat --force --stdout pass -r /usr/share/hashcat/rules/best64.rule 
+January
+yraunaJ
+JANUARY
+january
+January0
+January1
+January2
+January3
+January4
+January5
+---------------------------------------------------------snip-----------------------------------------------------------------
+```
